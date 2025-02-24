@@ -54,7 +54,7 @@ public class Main {
         int multipleValue = 30;
         for (int i = 600; i <= 750; i++) {
             if (i % multipleValue == 0) {
-                System.out.print(i+",");
+                System.out.print(i + ",");
             }
         }
         System.out.println("\n");
@@ -94,17 +94,18 @@ public class Main {
         System.out.println("Task 12:");
         Scanner scr = new Scanner(System.in);
         System.out.println("Enter a number:");
-        boolean isTrue = true;
         int inputNumber = scr.nextInt();
+        boolean isTrue = inputNumber != 0 && inputNumber != 1;
         for (int i = 2; i <= Math.sqrt(inputNumber); i++) {
             if (inputNumber % i == 0) {
                 isTrue = false;
             }
         }
-        if (isTrue){
+        if (isTrue) {
             System.out.println("It's a prime number.");
-        }else {
+        } else {
             System.out.println("It's not prime number");
         }
+        scr.close();
     }
 }
