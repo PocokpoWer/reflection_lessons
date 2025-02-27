@@ -3,112 +3,120 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         // Task Min/Max:
-        int[] numbers = {23, 23, 2, 10, 67, 7, 43, 121, 105, 7, 73, 100};
-        int temporaryValue = numbers[0];
-        System.out.println("Numbers of the array: " + Arrays.toString(numbers) + "\n");
-        for (int i = 0; i < numbers.length; i++) {
-            if (temporaryValue < numbers[i]) {
-                temporaryValue = numbers[i];
+        int[] arrayNumbers = {23, -23, 2, 10, 67, -7, 43, 121, 105, 7, 73, 100};
+        int largestElement = arrayNumbers[0];
+        System.out.println("The numbers of the array: " + Arrays.toString(arrayNumbers) + "\n");
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (largestElement < arrayNumbers[i]) {
+                largestElement = arrayNumbers[i];
             }
         }
-        System.out.println("The largest element of the array: " + temporaryValue);
+        System.out.println("The largest element of the array: " + largestElement);
 
-        for (int i = 0; i < numbers.length; i++) {
-            if (temporaryValue > numbers[i]) {
-                temporaryValue = numbers[i];
+        int smallestElement = arrayNumbers[0];
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (smallestElement > arrayNumbers[i]) {
+                smallestElement = arrayNumbers[i];
             }
         }
-        System.out.println("The smallest element of the array: " + temporaryValue);
+        System.out.println("The smallest element of the array: " + smallestElement);
+
         // Task Counting
-        int elementCounter1 = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] > 100) {
-                elementCounter1++;
+        int counter = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] > 100) {
+                counter++;
             }
         }
-        System.out.println(elementCounter1 + " elements are greater than 100");
-        int elementCounter2 = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] >= -50 && numbers[i] <= 78) {
-                elementCounter2++;
+        System.out.println(counter + " elements are greater than 100");
+
+        counter = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] >= -50 && arrayNumbers[i] <= 78) {
+                counter++;
             }
         }
-        System.out.println(elementCounter2 + " elements are between -50 and 78");
-        int elementCounter3 = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 == 0) {
-                elementCounter3++;
+        System.out.println(counter + " elements are between -50 and 78");
+
+        counter = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] % 2 == 0) {
+                counter++;
             }
         }
-        System.out.println(elementCounter3 + " elements are divisible by 2");
-        int elementCounter4 = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 3 != 0) {
-                elementCounter4++;
+        System.out.println(counter + " elements are divisible by 2");
+
+        counter = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] % 3 != 0) {
+                counter++;
             }
         }
-        System.out.println(elementCounter4 + " elements are not divisible by 3");
-        int elementCounter5 = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 73) {
-                elementCounter5++;
+        System.out.println(counter + " elements are not divisible by 3");
+
+        counter = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] == 73) {
+                counter++;
             }
         }
-        System.out.println(elementCounter5 + " the number 73 can be found in that array");
+        System.out.println(counter + " the number 73 can be found in that array");
+
         // Task Search
-        boolean isTrue = false;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 100) {
-                isTrue = true;
+        boolean checker = false;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] == 100) {
+                checker = true;
             }
         }
-        if (isTrue) {
+        if (checker) {
             System.out.println("Hundred can be found in this array");
         } else {
             System.out.println("I didn't find hundred in this array ");
         }
 
-        boolean isTrue2 = false;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] > 100) {
-                isTrue2 = true;
+        checker = false;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] > 100) {
+                checker = true;
             }
         }
-        if (isTrue2) {
-            System.out.println("I found number is greater than hundred in this array");
+        if (checker) {
+            System.out.println("I found a number greater than 100");
         } else {
-            System.out.println("I didn't find greater than hundred in this array ");
+            System.out.println("I didn't find greater than hundred");
         }
 
         int indexOfSeven = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 7) {
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            if (arrayNumbers[i] == 7) {
                 indexOfSeven = i;
                 break;
             }
         }
         System.out.println(indexOfSeven > 0 ? "First occurrence of 7 in the array: " + indexOfSeven + ". index" : "-1");
+
         //Task Sum/prod
         int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            sum += arrayNumbers[i];
         }
         System.out.println("The sum of the elements in the array: " + sum);
 
-        int sum2 = 1;
-        for (int i = 0; i < numbers.length; i++) {
-            sum2 *= numbers[i];
+        int prod = 1;
+        for (int i = 0; i < arrayNumbers.length; i++) {
+            prod *= arrayNumbers[i];
         }
-        System.out.println("The prod of the elements in the array: " + sum2);
+        System.out.println("The prod of the elements in the array: " + prod);
 
-        int sum3 = 0;
-        for (int i = 0; i < numbers.length; i++) {
+        sum = 0;
+        for (int i = 0; i < arrayNumbers.length; i++) {
             if ((i + 1) % 4 == 0) {
-                sum3 -= numbers[i];
+                sum -= arrayNumbers[i];
             } else {
-                sum3 += numbers[i];
+                sum += arrayNumbers[i];
             }
         }
-        System.out.println("Result: " + sum3);
+        System.out.println("Result: " + sum);
     }
 }
