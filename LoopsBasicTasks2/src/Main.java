@@ -13,9 +13,7 @@ public class Main {
         System.out.println("Task 2:");
         int multipleValue = 5;
         for (int i = 5; i <= 100; i += 5) {
-            if (i % 5 == 0) {
-                System.out.print(i + ",");
-            }
+            System.out.print(i + ",");
         }
         System.out.println("\n");
         // Task 3:
@@ -54,8 +52,8 @@ public class Main {
         System.out.println("\n");
         // Task 7:
         System.out.println("Task 7:");
-        for (int i = 1; i < 200; i++) {
-            if (i % 7 == 0) {
+        for (int i = 0; i < 200; i += 7) {
+            if (i > 0) {
                 System.out.print(i + ",");
             }
         }
@@ -80,11 +78,11 @@ public class Main {
         System.out.println();
         // Task 10:
         System.out.println("Task 10:");
-        int sumOfMulti = 1;
+        int multiply = 1;
         for (int i = 1; i <= 10; i++) {
-            sumOfMulti *= i;
+            multiply *= i;
         }
-        System.out.println(sumOfMulti);
+        System.out.println(multiply);
         System.out.println();
         // Task 11:
         System.out.println("Task 11:");
@@ -124,13 +122,13 @@ public class Main {
         // Task 16:
         System.out.println("Task 16:");
         Scanner scr = new Scanner(System.in);
-        int[] array = new int[13];
+        int[] array = new int[1];
         System.out.println("Please enter a number: ");
         int userNumber = scr.nextInt();
         boolean isSame = true;
-        for (int i = 1; i < 13; i++) {
-            array[i] += i * i;
-            if (array[i] != userNumber) {
+        for (int i = 1; i <= userNumber; i++) {
+            array[0] = i * i;
+            if (array[0] != userNumber) {
                 isSame = false;
             } else {
                 isSame = true;
@@ -146,8 +144,7 @@ public class Main {
         // Task 17:
         System.out.println("Task 17:");
         int numberLargestPrime = 500;
-        int indexIncreaser = 0;
-        int[] array2 = new int[95];
+        int[] array2 = new int[1];
         for (int i = 1; i <= numberLargestPrime; i++) {
             boolean isTrue = i != 1;
             for (int j = 2; j < i; j++) {
@@ -156,20 +153,10 @@ public class Main {
                 }
             }
             if (isTrue) {
-                array2[indexIncreaser] += i;
-                indexIncreaser++;
+                array2[0] = i;
             }
         }
-        int temporaryNumber = 0;
-        for (int k : array2) {
-            for (int j = 1; j < array2.length; j++) {
-                if (k > array2[j]) {
-                    temporaryNumber = k;
-                    break;
-                }
-            }
-        }
-        System.out.println("The largest prime number: " + temporaryNumber);
+        System.out.println("The largest prime number: " + array2[0]);
         System.out.println();
         //Task 18:
         System.out.println("Task 18:");
