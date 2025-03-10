@@ -78,11 +78,11 @@ public class Main {
         System.out.println();
         // Task 10:
         System.out.println("Task 10:");
-        int multiply = 1;
+        int prod = 1;
         for (int i = 1; i <= 10; i++) {
-            multiply *= i;
+            prod *= i;
         }
-        System.out.println(multiply);
+        System.out.println(prod);
         System.out.println();
         // Task 11:
         System.out.println("Task 11:");
@@ -125,12 +125,10 @@ public class Main {
         int[] array = new int[1];
         System.out.println("Please enter a number: ");
         int userNumber = scr.nextInt();
-        boolean isSame = true;
+        boolean isSame = false;
         for (int i = 1; i <= userNumber; i++) {
             array[0] = i * i;
-            if (array[0] != userNumber) {
-                isSame = false;
-            } else {
+            if (array[0] == userNumber) {
                 isSame = true;
                 break;
             }
@@ -143,17 +141,19 @@ public class Main {
         System.out.println();
         // Task 17:
         System.out.println("Task 17:");
-        int numberLargestPrime = 500;
+        int numberLargestPrime = 499;
         int[] array2 = new int[1];
-        for (int i = 1; i <= numberLargestPrime; i++) {
-            boolean isTrue = i != 1;
-            for (int j = 2; j < i; j++) {
+        for (int i = numberLargestPrime; i >= 2; i--) {
+            boolean isTrue = true;
+            for (int j = i - 1; j > 1; j--) {
                 if (i % j == 0) {
                     isTrue = false;
+                    break;
                 }
             }
             if (isTrue) {
                 array2[0] = i;
+                break;
             }
         }
         System.out.println("The largest prime number: " + array2[0]);
