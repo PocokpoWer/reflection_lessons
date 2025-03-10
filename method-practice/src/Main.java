@@ -1,6 +1,4 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
     // Task 1:
@@ -9,12 +7,12 @@ public class Main {
     }
 
     //Task 2:
-    public static int numberIsGreater(int a, int b) {
+    public static int getGreaterNumber(int a, int b) {
         return Math.max(a, b);
     }
 
     // Task 3:
-    public static String whichIsGreater(int a, int b) {
+    public static String decideGreaterNumber(int a, int b) {
         return a > b ? "The First number is greater" : b > a ? "The second number is greater" : "The two numbers are equal";
     }
 
@@ -51,7 +49,7 @@ public class Main {
     }
 
     // Task 8:
-    public static boolean isResultEqual(int a, int b, int c) {
+    public static boolean isProdEqualTo(int a, int b, int c) {
         return a * b == c;
     }
 
@@ -103,7 +101,7 @@ public class Main {
     }
 
     // Task 13:
-    public static String textConcatenates(String[] textArray) {
+    public static String concatenateTexts(String[] textArray) {
         String text = "";
         for (int i = 0; i < textArray.length; i++) {
             text += textArray[i];
@@ -130,7 +128,7 @@ public class Main {
             for (int j = 0; j < array[i].length; j++) {
                 sum += array[i][j];
             }
-            oneDimension[i] += sum;
+            oneDimension[i] = sum;
             sum = 0;
         }
         return oneDimension;
@@ -140,11 +138,7 @@ public class Main {
     public static int sumDiagonal(int[][] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i == j) {
-                    sum += array[i][j];
-                }
-            }
+            sum += array[i][i];
         }
         return sum;
     }
@@ -152,26 +146,12 @@ public class Main {
     // Task 17:
     public static int sumDiagonalDifference(int[][] array) {
         // Main diagonal
-        int sum = 0;
+        int sum = sumDiagonal(array);
+
+        // Other diagonal
         int sum2 = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i == j) {
-                    sum += array[i][j];
-                }
-            }
-        }
-        // Other diagonal
-        int increaseIndex = 0;
-        int descendingIndex = array[increaseIndex].length - 1;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = array[i].length - 1; j >= 0; j--) {
-                if (i == increaseIndex && j == descendingIndex) {
-                    sum2 += array[i][j];
-                    descendingIndex--;
-                    increaseIndex++;
-                }
-            }
+            sum2 += array[i][array.length - 1 - i];
         }
         return sum - sum2;
     }
