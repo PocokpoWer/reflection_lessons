@@ -18,7 +18,7 @@ public class Main {
     }
 
     // Task 4:
-    public static void doWrite() {
+    public static void printNumbers() {
         for (int i = 1; i <= 100; i++) {
             System.out.print(i + " ");
         }
@@ -40,7 +40,7 @@ public class Main {
                 return false;
             }
         }
-        return number != 0 && number != 1;
+        return number > 1;
     }
 
     // Task 7:
@@ -54,7 +54,7 @@ public class Main {
     }
 
     // Task 9:
-    public static int[] doWriteCubicNumbers(int number) {
+    public static int[] printCubicNumbers(int number) {
         int[] result = new int[number];
         for (int i = 0; i < number; i++) {
             result[i] = (int) Math.pow((i + 1), 3);
@@ -63,7 +63,7 @@ public class Main {
     }
 
     // Task 10:
-    public static void doWriteToCubicNumbers(int number) {
+    public static void printToCubicNumbers(int number) {
         int i = 1;
         int cubicNumber = 0;
         while (cubicNumber < number) {
@@ -92,7 +92,7 @@ public class Main {
     }
 
     // Task 12:
-    public static void textRepeat(String text, int number) {
+    public static void printTextRepeat(String text, int number) {
         if (number < 1) {
             System.out.println("");
         } else {
