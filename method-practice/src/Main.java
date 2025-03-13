@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     // Task 1:
@@ -17,14 +18,14 @@ public class Main {
     }
 
     // Task 4:
-    public static void writeNumbers() {
+    public static void doWrite() {
         for (int i = 1; i <= 100; i++) {
             System.out.print(i + " ");
         }
     }
 
     // Task 5:
-    public static void divisonWithFive(int input) {
+    public static void doDivison(int input) {
         for (int i = 1; i <= input; i++) {
             if (i % 5 == 0) {
                 System.out.print(i + " ");
@@ -33,18 +34,17 @@ public class Main {
     }
 
     // Task 6:
-    public static boolean isPrime(int a) {
-
-        for (int i = 2; i < a; i++) {
-            if (a % i == 0) {
+    public static boolean isPrime(int number) {
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
                 return false;
             }
         }
-        return a == 0 ? false : true;
+        return number != 0 && number != 1;
     }
 
     // Task 7:
-    public static boolean isDivisonEachOther(int first, int second) {
+    public static boolean doDivisonEachOther(int first, int second) {
         return first % second == 0;
     }
 
@@ -54,7 +54,7 @@ public class Main {
     }
 
     // Task 9:
-    public static int[] cubicNumbers(int number) {
+    public static int[] doWriteCubicNumbers(int number) {
         int[] result = new int[number];
         for (int i = 0; i < number; i++) {
             result[i] = (int) Math.pow((i + 1), 3);
@@ -63,30 +63,32 @@ public class Main {
     }
 
     // Task 10:
-    public static int[] toCubicNumbers(int number) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for (int i = 0; i < number; i++) {
-            result.add((int) Math.pow((i + 1), 3));
-            if (result.get(i) == number) {
-                break;
-            }
+    public static void doWriteToCubicNumbers(int number) {
+        int i = 1;
+        int cubicNumber = 0;
+        while (cubicNumber < number) {
+            cubicNumber = (int) Math.pow(i, 3);
+            i++;
+            System.out.print(cubicNumber + ",");
         }
-        return result.stream().mapToInt(i -> i).toArray();
     }
 
     // Task 11:
-    public static boolean hasSumValue(int[] array, int number) {
+    public static void doSumTwoDifferentNumber(int[] array, int number) {
         int temporaryNumber = 0;
-        int firstIndexOfArray = array[0];
         boolean isTrue = false;
-        for (int i = 1; i < array.length; i++) {
-            temporaryNumber = Integer.sum(firstIndexOfArray, array[i]);
-            if (temporaryNumber == number) {
-                isTrue = true;
-                break;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length; j++) {
+                temporaryNumber = array[i] + array[j];
+                if (temporaryNumber == number) {
+                    System.out.println("The number with index " + i + " and " + j + " is equal to the specified value.");
+                    isTrue = true;
+                }
             }
         }
-        return isTrue;
+        if (!isTrue) {
+            System.out.println("I didn't find any numbers that are equal to the given value.");
+        }
     }
 
     // Task 12:
@@ -102,15 +104,15 @@ public class Main {
 
     // Task 13:
     public static String concatenateTexts(String[] textArray) {
-        String text = "";
-        for (int i = 0; i < textArray.length; i++) {
-            text += textArray[i];
+        StringBuilder text = new StringBuilder();
+        for (String s : textArray) {
+            text.append(s);
         }
-        return text;
+        return text.toString();
     }
 
     // Task 14:
-    public static int sumAllNumber(int[][] array) {
+    public static int doSumAllNumber(int[][] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
