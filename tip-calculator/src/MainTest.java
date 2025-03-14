@@ -6,42 +6,42 @@ public class MainTest {
 
     @Test
     void shouldReturnTooHigh() {
-        Assertions.assertEquals(-1, Main.ExaminePercent(81));
+        Assertions.assertEquals(-1, Main.examinePercent(81));
     }
 
     @Test
     void shouldReturnMinusOneTooLow() {
-        Assertions.assertEquals(-1, Main.ExaminePercent(9));
+        Assertions.assertEquals(-1, Main.examinePercent(9));
     }
 
     @Test
     void shouldReturnPercent() {
-        Assertions.assertEquals(25, Main.ExaminePercent(25));
+        Assertions.assertEquals(25, Main.examinePercent(25));
     }
 
     @Test
     void shouldReturnZero() {
-        Assertions.assertEquals(-1, Main.ExaminePercent(0));
+        Assertions.assertEquals(-1, Main.examinePercent(0));
     }
 
     @Test
     void shouldReturnMinusOneBecauseTooHigh() {
-        Assertions.assertEquals(-1, Main.calculateTip(new int[]{Main.calculateSum(arrayTest)}, Main.ExaminePercent(81)));
+        Assertions.assertEquals(-1, Main.calculateTip(Main.examinePercent(81), Main.calculateSum(arrayTest)));
     }
 
     @Test
     void shouldReturnTipCalc() {
-        Assertions.assertEquals(712, Main.calculateTip(new int[]{Main.calculateSum(arrayTest)}, Main.ExaminePercent(25)));
+        Assertions.assertEquals(712, Main.calculateTip(Main.examinePercent(25), Main.calculateSum(arrayTest)));
     }
 
     @Test
     void shouldReturnTipCalcMinusOneBecauseTooLow() {
-        Assertions.assertEquals(-1, Main.calculateTip(new int[]{Main.calculateSum(arrayTest)}, Main.ExaminePercent(8)));
+        Assertions.assertEquals(-1, Main.calculateTip(Main.examinePercent(8), Main.calculateSum(arrayTest)));
     }
 
     @Test
     void shouldReturnTipCalcZero() {
-        Assertions.assertEquals(-1, Main.calculateTip(new int[]{Main.calculateSum(arrayTest)}, Main.ExaminePercent(0)));
+        Assertions.assertEquals(-1, Main.calculateTip(Main.examinePercent(0), Main.calculateSum(arrayTest)));
     }
 
     @Test

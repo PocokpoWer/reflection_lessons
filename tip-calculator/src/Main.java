@@ -2,15 +2,15 @@ public class Main {
     public static void main(String[] args) {
 
         int[] array = new int[]{2000, 250, 300, 50, 250};
-        System.out.println(calculateTip(new int[]{calculateSum(array)}, ExaminePercent(25)));
+        System.out.println(calculateTip(examinePercent(25), calculateSum(array)));
 
     }
 
-    public static int ExaminePercent(int percent) {
+    public static int examinePercent(int percent) {
         return percent >= 10 && percent <= 80 ? percent : -1;
     }
 
-    public static int calculateSum(int[] array) {
+    public static int calculateSum(int... array) {
         int spentMoney = 0;
         for (int number : array) {
             spentMoney += number;
@@ -18,7 +18,7 @@ public class Main {
         return spentMoney;
     }
 
-    public static int calculateTip(int[] numbers, int percent) {
+    public static int calculateTip(int percent, int... numbers) {
 
         return percent == -1 ? -1 : (numbers[0] * percent) / 100;
     }
