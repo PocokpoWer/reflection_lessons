@@ -54,7 +54,7 @@ public class Main {
     }
 
     // Task 9:
-    public static int[] printCubicNumbers(int number) {
+    public static int[] printFirstCubicNumbers(int number) {
         int[] result = new int[number];
         for (int i = 0; i < number; i++) {
             result[i] = (int) Math.pow((i + 1), 3);
@@ -63,7 +63,7 @@ public class Main {
     }
 
     // Task 10:
-    public static void printToCubicNumbers(int number) {
+    public static void printCubicNumbersUpTo(int number) {
         int i = 1;
         int cubicNumber = 0;
         while (cubicNumber < number) {
