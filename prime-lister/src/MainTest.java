@@ -8,18 +8,43 @@ public class MainTest {
     }
 
     @Test
-    void shouldReturnFalse() {
-        Assertions.assertFalse(Main.isPrime(82));
+    void shouldReturnIsPrimeTrue2() {
+        Assertions.assertTrue(Main.isPrime(228595153));
     }
 
     @Test
-    void shouldReturnIsTrue() {
+    void shouldReturnIsPrimeFalse() {
+        Assertions.assertFalse(Main.isPrime(4));
+    }
+
+    @Test
+    void shouldReturnIsPrimeFalse2() {
+        Assertions.assertFalse(Main.isPrime(1987234765));
+    }
+
+    @Test
+    void shouldReturnIsPrimeFalse3() {
+        Assertions.assertFalse(Main.isPrime(0));
+    }
+
+    @Test
+    void shouldReturnIsValidBetweenTwoAndTwoBillionTrue() {
         Assertions.assertTrue(Main.isValidBetweenTwoAndTwoBillion(5));
     }
 
     @Test
-    void shouldReturnFalseNumber() {
+    void shouldReturnIsValidBetweenTwoAndTwoBillionTrue2() {
+        Assertions.assertTrue(Main.isValidBetweenTwoAndTwoBillion(1934765789));
+    }
+
+    @Test
+    void shouldReturnIsValidBetweenTwoAndTwoBillionFalse() {
         Assertions.assertFalse(Main.isValidBetweenTwoAndTwoBillion(1));
+    }
+
+    @Test
+    void shouldReturnIsValidBetweenTwoAndTwoBillionFalse2() {
+        Assertions.assertFalse(Main.isValidBetweenTwoAndTwoBillion(-23234252));
     }
 
 }

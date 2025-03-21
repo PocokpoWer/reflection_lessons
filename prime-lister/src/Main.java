@@ -2,8 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean isPrime(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
+        if (number == 2 || number == 3 || number == 5) {
+            return true;
+        }
+        if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0) {
+            return false;
+        }
+        for (int i = 7; i <= Math.sqrt(number); i += 4) {
+            if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
         }
@@ -14,9 +20,14 @@ public class Main {
         if (userInput == -1) {
             System.exit(2);
         }
-        for (int i = 2; i <= userInput; i++) {
-            if (isPrime(i)) {
+        System.out.print(userInput >= 2 ? "2 " : "");
+        for (int i = 3; i <= userInput; i += 4) {
+            if (isPrime(i) && isPrime(i + 2) && i + 2 <= userInput) {
+                System.out.print(i + " " + (i + 2) + " ");
+            } else if (isPrime(i)) {
                 System.out.print(i + " ");
+            } else if (isPrime((i + 2)) && i + 2 <= userInput) {
+                System.out.print((i + 2) + " ");
             }
         }
     }
@@ -26,7 +37,12 @@ public class Main {
             System.exit(2);
         }
         for (int i = 1; i <= userInput; i++) {
-            System.out.print(i * i + " ");
+            int temporaryNumber = i * i;
+            if (temporaryNumber <= userInput) {
+                System.out.print(temporaryNumber + " ");
+            } else {
+                break;
+            }
         }
     }
 
@@ -36,16 +52,17 @@ public class Main {
 
     public static int getNumberFromUser() {
         Scanner scanner = new Scanner(System.in);
-        int userInput;
-        int attempt = 0;
-        while (attempt < 5) {
+        int numberFromUser;
+        int attempts = 0;
+        while (attempts < 5) {
             System.out.println("Write a number: ");
-            userInput = scanner.nextInt();
-            if (!isValidBetweenTwoAndTwoBillion(userInput)) {
-                attempt++;
+            numberFromUser = scanner.nextInt();
+            if (!isValidBetweenTwoAndTwoBillion(numberFromUser)) {
+                attempts++;
             } else {
-                return userInput;
+                return numberFromUser;
             }
+            scanner.close();
         }
         return -1;
     }
