@@ -8,20 +8,20 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class MainTest {
     @ParameterizedTest
     @ValueSource(ints = {111, 212, 145, 405})
-    void shouldReturnCountingDigits(int number) {
-        assertEquals(3, Main.countingDigits(number));
+    void shouldReturnCountDigits(int number) {
+        assertEquals(3, Main.countDigits(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4})
-    void shouldReturnCountingDigits2(int number) {
-        assertEquals(1, Main.countingDigits(number));
+    void shouldReturnCountDigits2(int number) {
+        assertEquals(1, Main.countDigits(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1123123, 2758473, 3483925, 4351742})
-    void shouldReturnCountingDigits3(int number) {
-        assertEquals(7, Main.countingDigits(number));
+    void shouldReturnCountDigits3(int number) {
+        assertEquals(7, Main.countDigits(number));
     }
 
     @Test
@@ -35,23 +35,28 @@ public class MainTest {
     }
 
     @Test
-    void shouldReturnMultiAndSumNumbers() {
-        assertEquals(1, Main.multiAndSumNumbers(Main.separateNumbers(1)));
+    void shouldReturnCalculateFactorial() {
+        assertEquals(120, Main.calculateFactorial(5));
     }
 
     @Test
-    void shouldReturnMultiAndSumNumbers2() {
-        assertEquals(145, Main.multiAndSumNumbers(Main.separateNumbers(145)));
+    void shouldReturnSumNumbers() {
+        assertEquals(1, Main.sumNumbers(Main.separateNumbers(1)));
     }
 
     @Test
-    void shouldReturnMultiAndSumNumbers3() {
-        assertEquals(745, Main.multiAndSumNumbers(Main.separateNumbers(146)));
+    void shouldReturnSumNumbers2() {
+        assertEquals(145, Main.sumNumbers(Main.separateNumbers(145)));
     }
 
     @Test
-    void shouldReturMultiAndSumNumbers4() {
-        assertEquals(40585, Main.multiAndSumNumbers(Main.separateNumbers(40585)));
+    void shouldReturnSumNumbers3() {
+        assertEquals(745, Main.sumNumbers(Main.separateNumbers(146)));
+    }
+
+    @Test
+    void shouldReturnSumNumbers4() {
+        assertEquals(40585, Main.sumNumbers(Main.separateNumbers(40585)));
     }
 
 }
