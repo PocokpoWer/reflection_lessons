@@ -21,14 +21,14 @@ public class MainTest {
     }
 
     @Test
-    void shouldReturnPrimeAdd() {
+    void shouldReturnCreatePrimeList() {
         List<Integer> expected = Arrays.asList(2, 3, 5, 7, 11);
-        assertEquals((expected), Main.primeAdd(11));
+        assertEquals((expected), Main.createPrimeList(11));
     }
     @Test
-    void shouldReturnPrimeAdd2() {
+    void shouldReturnCreatePrimeList2() {
         List<Integer> expected = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53, 59, 61, 67, 71, 73, 79, 83);
-        assertEquals((expected), Main.primeAdd(83));
+        assertEquals((expected), Main.createPrimeList(83));
     }
 
     @Test

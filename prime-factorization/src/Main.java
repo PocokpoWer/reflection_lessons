@@ -17,7 +17,7 @@ public class Main {
         return number > 1;
     }
 
-    public static List<Integer> primeAdd(int number) {
+    public static List<Integer> createPrimeList(int number) {
         List<Integer> primeNumbers = new ArrayList<>();
         for (int i = 2; i <= number; i++) {
             if (isPrime(i)) {
@@ -31,9 +31,10 @@ public class Main {
         List<Integer> productOfPrimes = new ArrayList<>();
         int i = 0;
         while (number != 1) {
-            if (number % primeAdd(number).get(i) == 0) {
-                productOfPrimes.add(primeAdd(number).get(i));
-                number /= primeAdd(number).get(i);
+            int currentNumber = createPrimeList(number).get(i);
+            if (number % currentNumber == 0) {
+                productOfPrimes.add(currentNumber);
+                number /= currentNumber;
             } else {
                 i++;
             }
