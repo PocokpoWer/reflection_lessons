@@ -1,9 +1,8 @@
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainTest {
     @ParameterizedTest
@@ -57,6 +56,14 @@ public class MainTest {
     @Test
     void shouldReturnSumNumbers4() {
         assertEquals(40585, Main.sumNumbers(Main.separateNumbers(40585)));
+    }
+    @Test
+    void shouldReturnIsStrongNumber(){
+        assertTrue(Main.isStrongNumber(40585));
+    }
+    @Test
+    void shouldReturnIsStrongNumber2(){
+        assertFalse(Main.isStrongNumber(40));
     }
 
 }

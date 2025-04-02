@@ -40,9 +40,12 @@ public class Main {
         return Result;
     }
 
-    public static void main(String[] args) {
-        int number = 40585;
+    public static boolean isStrongNumber(int number) {
         int result = sumNumbers(separateNumbers(number));
-        System.out.println(result == number ? "It's a strong number" : "It isn't a strong number");
+        return result == number;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isStrongNumber(40586) ? "It's a strong number" : "It isn't a strong number");
     }
 }
