@@ -11,10 +11,9 @@ public class MainTest {
 
     // Task 4:
     @Test
-    void shouldReturnGetEmptyArray() {
+    void shouldReturnGetEmptyString() {
         String[] text = {"Word", "some", "anybody", "doing"};
-        String[] expected = {"", "", "", ""};
-        assertArrayEquals(expected, Main.getEmptyArray(text));
+        assertEquals("", Main.getEmptyString(text));
     }
 
     // Task 5:
@@ -32,7 +31,7 @@ public class MainTest {
     // Task 7
     @Test
     void shouldReturnCalculateDifferenceTwoNumbers() {
-        assertEquals(6, Main.calculateDifferenceTwoNumbers(4, 10));
+        assertEquals(-6, Main.calculateDifferenceTwoNumbers(4, 10));
     }
 
     // Task 8:
@@ -85,12 +84,6 @@ public class MainTest {
 
     // Task 12:
     @Test
-    void shouldReturnCounterArraySize() {
-        String[] arrayToTest = {"Word", "some", "anybody", "doing"};
-        assertEquals(4, Main.counterArraySize(arrayToTest));
-    }
-
-    @Test
     void shouldReturnCalculateStringLength() {
         String[] arrayToTest2 = {"Word", "some", "anybody", "doing"};
         int[] expected = {4, 4, 7, 5};
@@ -129,10 +122,10 @@ public class MainTest {
 
     // Task 15:
     @Test
-    void shouldReturnGetOppositeNumber() {
-        int[] numbers = {12, 10, -5, 23, 10, 67, 0};
-        int[] oppositeNumbers = {-12, -10, 5, -23, -10, -67, 0};
-        assertArrayEquals(oppositeNumbers, Main.getOppositeNumber(numbers));
+    void shouldReturnGetNegativeNumbers() {
+        int[] numbers = {-12, 10, -5, 23, 10, -67, 0};
+        int[] negativeNumbers = {-12, -5, -67};
+        assertArrayEquals(negativeNumbers, Main.getNegativeNumbers(numbers));
     }
 
 

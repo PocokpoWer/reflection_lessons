@@ -12,16 +12,13 @@ public class Main {
     }
 
     //Task 3: Gets in a number and returns its 30%
-    public static int getThirtyPercentOfNumber(int number) {
-        return (int) (number * 0.3);
+    public static double getThirtyPercentOfNumber(int number) {
+        return number * 0.3;
     }
 
     // Task 4: Gets in an array of Strings and returns an empty String
-    public static String[] getEmptyArray(String[] text) {
-        for (int i = 0; i < text.length; i++) {
-            text[i] = "";
-        }
-        return text;
+    public static String getEmptyString(String[] text) {
+        return "";
     }
 
     // Task 5: Gets in a number and returns its 42.8%
@@ -36,7 +33,7 @@ public class Main {
 
     // Task 7: Gets in two numbers and returns how much you would need to add to the first number to get the second one
     public static int calculateDifferenceTwoNumbers(int a, int b) {
-        return a > b ? a - b : b - a;
+        return a - b;
     }
 
     // Task 8: Gets in a String and returns the square root of its length
@@ -74,24 +71,15 @@ public class Main {
     public static int getNumberPrimeNotPrimeDivideFourOrNot(int number) {
         if (isPrime(number)) {
             return number * number;
-        } else if (!isPrime(number) && number % 4 == 0) {
+        } else if (number % 4 == 0) {
             return number * 2;
-        } else {
-            return number * 3;
         }
+        return number * 3;
     }
 
     // Task 12: Gets in an array of Strings and returns a new array of numbers of each String’s length
-    public static int counterArraySize(String[] array) {
-        int counter = 0;
-        for (int i = 0; i < array.length; i++) {
-            counter++;
-        }
-        return counter;
-    }
-
     public static int[] calculateStringLength(String[] array) {
-        int[] stringLength = new int[counterArraySize(array)];
+        int[] stringLength = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             stringLength[i] = array[i].length();
         }
@@ -125,12 +113,24 @@ public class Main {
     }
 
     // Task 15: Gets in an array of numbers and returns a new array with all the negative numbers in from the original array
-    public static int[] getOppositeNumber(int[] array) {
-        int[] oppositeNumbers = new int[array.length];
+    public static int countArraySize(int[] array) {
+        int j = 0;
         for (int i = 0; i < array.length; i++) {
-            oppositeNumbers[i] = -(array[i]);
+            if (array[i] < 0) j++;
         }
-        return oppositeNumbers;
+        return j;
+    }
+
+    public static int[] getNegativeNumbers(int[] array) {
+        int j = 0;
+        int[] negativeNumbers = new int[countArraySize(array)];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                negativeNumbers[j] = array[i];
+                j++;
+            }
+        }
+        return negativeNumbers;
     }
 
     public static void main(String[] args) {
@@ -145,7 +145,7 @@ public class Main {
 
         System.out.println("Task 4:");
         String[] text = {"Word", "some", "anybody", "doing"};
-        System.out.println(Arrays.toString(getEmptyArray(text)));
+        System.out.println(getEmptyString(text));
 
         System.out.println("Task 5:");
         System.out.println(getFortyTwoDotTwoPercentOfNumber(100));
@@ -154,7 +154,7 @@ public class Main {
         System.out.println(getDoubleStringLength("FarkasTibor"));
 
         System.out.println("Task 7:");
-        System.out.println(calculateDifferenceTwoNumbers(2, 12));
+        System.out.println(calculateDifferenceTwoNumbers(5, 8));
 
         System.out.println("Task 8:");
         System.out.println(getStringSquareRootLength("Farkas Tibor"));
@@ -181,7 +181,7 @@ public class Main {
         System.out.println(xorArray(array));
 
         System.out.println("Task 15:");
-        int[] numbers = new int[]{12, 10, -5, 23, 10, 67, 0};
-        System.out.println(Arrays.toString(getOppositeNumber(numbers)));
+        int[] numbers = new int[]{12, 10, -5, 23, 10, -67, 0};
+        System.out.println(Arrays.toString(getNegativeNumbers(numbers)));
     }
 }
