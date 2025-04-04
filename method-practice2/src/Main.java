@@ -114,11 +114,13 @@ public class Main {
 
     // Task 15: Gets in an array of numbers and returns a new array with all the negative numbers in from the original array
     public static int countArraySize(int[] array) {
-        int j = 0;
+        int counter = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] < 0) j++;
+            if (array[i] < 0) {
+                counter++;
+            }
         }
-        return j;
+        return counter;
     }
 
     public static int[] getNegativeNumbers(int[] array) {
