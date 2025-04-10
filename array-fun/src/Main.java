@@ -85,9 +85,9 @@ public class Main {
     public static int[] getNumbersSquare(int[] array) {
         int resultIndex = 0;
         int[] result = new int[calculateArraySize(array)];
-        for (int j : array) {
-            if (j % 2 != 0 && j != 0) {
-                result[resultIndex++] = (int) Math.pow(j, 2);
+        for (int number : array) {
+            if (number % 2 != 0) {
+                result[resultIndex++] = number * number;
             }
         }
         return result;
@@ -96,8 +96,8 @@ public class Main {
     // Task 3: Return the number of strings that start with the letter "a" or "A".
     public static int calculateArraySizeWithA(String[] array) {
         int counter = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].charAt(0) == 'a' || array[i].charAt(0) == 'A') {
+        for (String s : array) {
+            if (s.charAt(0) == 'a' || s.charAt(0) == 'A') {
                 counter++;
             }
         }
@@ -108,7 +108,7 @@ public class Main {
         int[] numberOfStrings = new int[calculateArraySizeWithA(array)];
         int numberOfStringIndex = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i].charAt(0) == 'a' || array[i].charAt(0) == 'A') {
+            if (array[i].toLowerCase().charAt(0) == 'a') {
                 numberOfStrings[numberOfStringIndex] = i;
                 numberOfStringIndex++;
             }
@@ -119,9 +119,9 @@ public class Main {
     // Task 4: Return the concatenation of all strings that are longer than 3 characters.
     public static String concatenationStrings(String[] array) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].length() < 4 && !array[i].isEmpty()) {
-                sb.append(array[i]);
+        for (String s : array) {
+            if (s.length() > 3) {
+                sb.append(s);
             }
         }
         return sb.toString();
@@ -133,11 +133,10 @@ public class Main {
         for (int i = 1, j = 0; i < array.length; i++, j++) {
             Integer temporaryNumber = array[j];
             if (temporaryNumber.equals(array[i])) {
-                isTrue = true;
-                break;
+                return true;
             }
         }
-        return isTrue;
+        return false;
     }
 
     // Task 6: Return the total number of vowels in a 2D array of strings.
@@ -147,7 +146,7 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length(); k++) {
-                    if (array[i][j].toLowerCase().charAt(k) == 'a' || array[i][j].charAt(k) == 'e' || array[i][j].charAt(k) == 'i' || array[i][j].charAt(k) == 'o' || array[i][j].charAt(k) == 'u') {
+                    if (array[i][j].toLowerCase().charAt(k) == 'a' || array[i][j].toLowerCase().charAt(k) == 'e' || array[i][j].toLowerCase().charAt(k) == 'i' || array[i][j].toLowerCase().charAt(k) == 'o' || array[i][j].toLowerCase().charAt(k) == 'u') {
                         vowelCounter++;
                     }
                 }
@@ -175,10 +174,8 @@ public class Main {
     // task 8: Return a one-dimensional (in other words: flattened) array of all strings in uppercase.
     public static int calculate2DArraySize(String[][] array) {
         int counter = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                counter++;
-            }
+        for (String[] strings : array) {
+            counter += strings.length;
         }
         return counter;
     }
@@ -197,21 +194,21 @@ public class Main {
     // task 9: Return a new 2D array of booleans where each element
     // is true if the corresponding string contains a digit.
     public static boolean[][] isNumberContain(String[][] array) {
-        boolean[][] isNumber = new boolean[array.length][];
+        boolean[][] isNumberSubArray = new boolean[array.length][];
         for (int i = 0; i < array.length; i++) {
-            isNumber[i] = new boolean[array[i].length];
+            isNumberSubArray[i] = new boolean[array[i].length];
         }
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length(); k++) {
                     char letter = array[i][j].charAt(k);
                     if (Character.isDigit(letter)) {
-                        isNumber[i][j] = true;
+                        isNumberSubArray[i][j] = true;
                     }
                 }
             }
         }
-        return isNumber;
+        return isNumberSubArray;
     }
 
     // Task 10: Return the average number of characters per string across all elements

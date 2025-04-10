@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class MainTest {
     //Task 1:
     @Test
@@ -77,6 +79,14 @@ public class MainTest {
     void shouldCalculate2DArraySize() {
         String[][] arrayOfTask8 = {{"hello", "something", "yes", "architect"}, {"music", "pizza", "song"}};
         assertEquals(7, Main.calculate2DArraySize(arrayOfTask8));
+    }
+
+    @Test
+    void shouldIsNumberContain() {
+        String[][] arrayOfTask9 = {{"apple", "banana1", "cherry"}, {"dog2", "elephant", "cat3"}, {"sun", "moon4", "star"}};
+        boolean[][] expected = {{false, true, false}, {true, false, true}, {false, true, false}};
+        boolean[][] actual = Main.isNumberContain(arrayOfTask9);
+        assertTrue(Arrays.deepEquals(expected, actual));
     }
 
     //Task 10:
