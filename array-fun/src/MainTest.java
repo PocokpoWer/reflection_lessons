@@ -59,13 +59,13 @@ public class MainTest {
     //Task 6:
     @Test
     void shouldIsVowelTrue() {
-        String arrayOfTask6 = "A";
+        char arrayOfTask6 = 'e';
         assertTrue(Main.isVowel(arrayOfTask6));
     }
 
     @Test
     void shouldIsVowelFalse() {
-        String arrayOfTask6 = "B";
+        char arrayOfTask6 = 'B';
         assertFalse(Main.isVowel(arrayOfTask6));
     }
 
