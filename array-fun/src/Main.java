@@ -141,21 +141,32 @@ public class Main {
 
     // Task 6: Return the total number of vowels in a 2D array of strings.
     // (you don’t have to consider non-English vowels, only a, e, i, o and u).
+
+    public static boolean isVowel(String array) {
+        String[] letters = {"a", "e", "i", "o", "u"};
+        for (int i = 0; i < letters.length; i++) {
+            if (array.toLowerCase().equals(letters[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static int getVowelsNumber(String[][] array) {
         int vowelCounter = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length(); k++) {
-                    if (array[i][j].toLowerCase().charAt(k) == 'a' || array[i][j].toLowerCase().charAt(k) == 'e' || array[i][j].toLowerCase().charAt(k) == 'i' || array[i][j].toLowerCase().charAt(k) == 'o' || array[i][j].toLowerCase().charAt(k) == 'u') {
+                    String temporaryLetter = String.valueOf(array[i][j].charAt(k));
+                    if (isVowel(temporaryLetter))
                         vowelCounter++;
-                    }
                 }
             }
         }
         return vowelCounter;
     }
 
-    // Task 7: Return the sum of the lengths of the longest string from each row (subarray).
+// Task 7: Return the sum of the lengths of the longest string from each row (subarray).
 
     public static int getLongestStringNumber(String[][] array) {
         int result = 0;
@@ -192,7 +203,7 @@ public class Main {
     }
 
     // task 9: Return a new 2D array of booleans where each element
-    // is true if the corresponding string contains a digit.
+// is true if the corresponding string contains a digit.
     public static boolean[][] isNumberContain(String[][] array) {
         boolean[][] isNumberSubArray = new boolean[array.length][];
         for (int i = 0; i < array.length; i++) {

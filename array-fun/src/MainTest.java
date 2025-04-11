@@ -58,6 +58,18 @@ public class MainTest {
 
     //Task 6:
     @Test
+    void shouldIsVowelTrue() {
+        String arrayOfTask6 = "A";
+        assertTrue(Main.isVowel(arrayOfTask6));
+    }
+
+    @Test
+    void shouldIsVowelFalse() {
+        String arrayOfTask6 = "B";
+        assertFalse(Main.isVowel(arrayOfTask6));
+    }
+
+    @Test
     void shouldGetVowelsNumber() {
         String[][] arrayOfTask6 = {{"Tibi", "Joseph"}, {"Katalin", "Fish"}};
         assertEquals(8, Main.getVowelsNumber(arrayOfTask6));
