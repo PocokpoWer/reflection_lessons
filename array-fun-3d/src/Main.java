@@ -9,7 +9,7 @@ public class Main {
                         {"hello", "level"}, {"apple", "dog"}
                 },
                 {
-                        {"madam", "racecar"}, {"jump", "banane"}
+                        {"madam", "racecar"}, {"jump", "banana"}
                 },
                 {
                         {"refer", "noon"}, {"rotor", "mother"}
@@ -83,16 +83,19 @@ public class Main {
     // Task 11: Return the number of strings that are palindromes
     // (same forward and backward - for example: “racecar” is read
     // the same way if you read it from forward and backward).
+    public static boolean isPalindrome(String word) {
+        StringBuilder reverseWord = new StringBuilder();
+        reverseWord.append(word.toLowerCase()).reverse();
+        return reverseWord.toString().equals(word.toLowerCase());
+    }
+
     public static int countPalindromeElements(String[][][] array) {
         int result = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length; k++) {
-                    StringBuilder temporaryWord = new StringBuilder();
-                    for (int l = array[i][j][k].length() - 1; l >= 0; l--) {
-                        temporaryWord.append(array[i][j][k].charAt(l));
-                    }
-                    if (Objects.equals(array[i][j][k], temporaryWord.toString())) {
+                    String temporaryWord = array[i][j][k];
+                    if (isPalindrome(temporaryWord)) {
                         result++;
                     }
                 }

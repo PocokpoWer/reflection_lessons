@@ -3,8 +3,18 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class MainTest {
+    // Task 11:
     @Test
-        // Task 11:
+    void shouldIsPalindromeTrue() {
+        assertTrue(Main.isPalindrome("Level"));
+    }
+
+    @Test
+    void shouldIsPalindromeFalse() {
+        assertFalse(Main.isPalindrome("hello"));
+    }
+
+    @Test
     void shouldCountPalindromeElements() {
         String[][][] arrayOfTask11 = {
                 {
@@ -38,7 +48,6 @@ public class MainTest {
     }
 
     // Task 13:
-    //I know, it isn't what we need, but i can't know test with string yet.
     @Test
     void shouldConcatenateAllString() {
         String[][][] arrayOfTask13 = {
@@ -51,8 +60,9 @@ public class MainTest {
                         {"t", "paragliding"}
                 }
         };
-        int actual = Main.concatenateAllString(arrayOfTask13).length();
-        assertEquals(60, actual);
+        String actual = Main.concatenateAllString(arrayOfTask13);
+        String expected = "orangenumberdogmousefishcomputercatvegetarianshopparagliding";
+        assertEquals(expected, actual);
     }
 
     // Task 14:
