@@ -17,8 +17,8 @@ public class MainTest {
 
     @Test
     void shouldSeparateNumbers() {
-        int[] expected = {3, 6, 2, 3};
-        assertArrayEquals(expected, Main.separateNumbers(3263));
+        int expected = 3623;
+        assertEquals(expected, Main.separateNumbers(3263));
     }
 
     // Task 3:

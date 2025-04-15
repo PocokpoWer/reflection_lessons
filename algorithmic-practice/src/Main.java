@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Arrays;
 
 public class Main {
@@ -6,8 +7,7 @@ public class Main {
         System.out.println(findGreatestCommonDivisor(1000, 650));
 
         System.out.println("Task 2:");
-        int number = 5641;
-        System.out.println(Arrays.toString(separateNumbers(number)));
+        System.out.println(separateNumbers(5641));
 
         System.out.println("Task 3:");
         System.out.println(changeNumberReversed("aabcccccaaa"));
@@ -41,15 +41,8 @@ public class Main {
         return counter;
     }
 
-    public static int[] separateNumbers(int number) {
-        int index = 0;
-        int[] numberArray = new int[countDigits(number)];
-        while (number > 0) {
-            numberArray[index] = number % 10;
-            number /= 10;
-            index++;
-        }
-        return numberArray;
+    public static int separateNumbers(int number) {
+        return Integer.valueOf(new StringBuilder(String.valueOf(number)).reverse().toString());
     }
 
     // Task 3: Takes in a String like "aabcccccaaa", return a compressed version like "a2b1c5a3".
@@ -70,8 +63,6 @@ public class Main {
 
     // Task 4: Takes in a String and returns whether it is palindrome.
     public static boolean isPalindrome(String input) {
-        StringBuilder str = new StringBuilder();
-        str.append(input);
-        return str.reverse().toString().equals(input);
+        return new StringBuilder(input).reverse().toString().equals(input);
     }
 }
