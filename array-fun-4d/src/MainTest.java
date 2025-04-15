@@ -135,6 +135,11 @@ public class MainTest {
     }
 
     @Test
+    void shouldCountVowels() {
+        assertEquals(3, Main.countVowels("papaya"));
+    }
+
+    @Test
     void shouldGetStringsWithTwoVowel() {
         String[][][][] arrayOfTask19 = {
                 {
@@ -164,7 +169,7 @@ public class MainTest {
 
     // Task 20:
     @Test
-    void shouldCalculateArraySizeOfTak20() {
+    void shouldCalculateArraySizeOfTask20() {
         String[][][][] arrayOfTask20Test
                 = {
                 {
@@ -198,7 +203,7 @@ public class MainTest {
                         }
                 }
         };
-        assertEquals(12, Main.calculateArraySizeOfTak20(arrayOfTask20Test));
+        assertEquals(12, Main.calculateArraySizeOfTask20(arrayOfTask20Test));
     }
 
     @Test
@@ -221,7 +226,7 @@ public class MainTest {
                         },
                         {
                                 {"peach", "berry", "dog"},
-                                {"nut", "papaya", "hi"}
+                                {"nut", "", "hi"}
                         }
                 },
                 {
@@ -235,7 +240,7 @@ public class MainTest {
                         }
                 }
         };
-        String[] expected = {"kiwi", "a", "x", "b", "abc", "zz", "dog", "hi", "m", "q", "z", "r",};
+        String[] expected = {"kiwi", "a", "x", "b", "abc", "zz", "dog", "", "m", "q", "z", "r",};
         assertArrayEquals(expected, Main.findShortestString(arrayOfTask20));
     }
 

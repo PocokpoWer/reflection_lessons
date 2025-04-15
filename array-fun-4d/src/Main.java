@@ -112,7 +112,7 @@ public class Main {
                 {
                         {
                                 {"mango", "lemon", "abc"},
-                                {"lime", "date", "zz"}
+                                {"lime", "", "zz"}
                         },
                         {
                                 {"peach", "berry", "dog"},
@@ -143,15 +143,15 @@ public class Main {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
                         String word = array[i][j][k][l];
+                        String asd = "";
                         if (word != null && !word.isEmpty()) {
-                            boolean temporaryAllow = true;
                             for (int n = 0; n < word.length(); n++) {
                                 if (!Character.isLowerCase(word.charAt(n))) {
-                                    temporaryAllow = false;
                                     break;
                                 }
+                                asd += word.charAt(n);
                             }
-                            if (temporaryAllow) {
+                            if (word.length() == asd.length()) {
                                 counter++;
                             }
                         }
@@ -221,18 +221,24 @@ public class Main {
         return b == 'a' || b == 'e' || b == 'i' || b == 'o' || b == 'u';
     }
 
+    public static int countVowels(String array) {
+        int vowels = 0;
+        for (int i = 0; i < array.length(); i++) {
+            if (isVowel(array.charAt(i))) {
+                vowels++;
+            }
+        }
+        return vowels;
+    }
+
     public static int calculateArraySizeOfTask19(String[][][][] array) {
         int counter = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
-                        int counterVowel = 0;
-                        for (int m = 0; m < array[i][j][k][l].length(); m++) {
-                            if (isVowel(array[i][j][k][l].charAt(m))) {
-                                counterVowel++;
-                            }
-                        }
+                        String temporaryWord = array[i][j][k][l];
+                        int counterVowel = countVowels(temporaryWord);
                         if (counterVowel > 2) {
                             counter++;
                         }
@@ -250,14 +256,10 @@ public class Main {
             for (int j = 0; j < array[i].length; j++) {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
-                        int counterVowel = 0;
-                        for (int m = 0; m < array[i][j][k][l].length(); m++) {
-                            if (isVowel(array[i][j][k][l].charAt(m))) {
-                                counterVowel++;
-                            }
-                        }
+                        String temporaryWord = array[i][j][k][l];
+                        int counterVowel = countVowels(temporaryWord);
                         if (counterVowel > 2) {
-                            result[index++] = array[i][j][k][l];
+                            result[index++] = temporaryWord;
                         }
                     }
                 }
@@ -267,7 +269,7 @@ public class Main {
     }
 
     // Task 20: Return the shortest string across all dimensions.
-    public static int calculateArraySizeOfTak20(String[][][][] array) {
+    public static int calculateArraySizeOfTask20(String[][][][] array) {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -280,7 +282,7 @@ public class Main {
     }
 
     public static String[] findShortestString(String[][][][] array) {
-        String[] result = new String[calculateArraySizeOfTak20(array)];
+        String[] result = new String[calculateArraySizeOfTask20(array)];
         int index = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -288,7 +290,7 @@ public class Main {
                     String[] words = array[i][j][k];
                     String temporaryWord = words[0];
                     for (int l = 1; l < words.length; l++) {
-                        if (!temporaryWord.isEmpty() && words[l].length() < temporaryWord.length()) {
+                        if (words[l].length() < temporaryWord.length()) {
                             temporaryWord = words[l];
                         }
                     }
