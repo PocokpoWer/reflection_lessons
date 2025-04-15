@@ -199,6 +199,15 @@ public class Main {
         System.out.println(concatenateAllString(arrayOfTask24));
     }
 
+    public static boolean isFreeOfEorR(String word) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.toLowerCase().charAt(i) == 'e' || word.charAt(i) == 'r') {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Task 21: Return the number of strings that do not contain the letters “e”, “E”, or “r”.
     public static int findArrayIndexWithoutEAndR(String[][][][][] array) {
         int counter = 0;
@@ -207,16 +216,8 @@ public class Main {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
                         for (int m = 0; m < array[i][j][k][l].length; m++) {
-                            boolean isTrue = false;
-                            for (int n = 0; n < array[i][j][k][l][m].length(); n++) {
-                                if (array[i][j][k][l][m].toLowerCase().charAt(n) == 'e' || array[i][j][k][l][m].charAt(n) == 'r') {
-                                    isTrue = false;
-                                    break;
-                                } else {
-                                    isTrue = true;
-                                }
-                            }
-                            if (isTrue) {
+                            String temporaryWord = array[i][j][k][l][m];
+                            if (isFreeOfEorR(temporaryWord)) {
                                 counter++;
                             }
                         }
@@ -263,6 +264,10 @@ public class Main {
 
     // Task 23: Return the total number of characters
     // across all strings that start and end with the same letter.
+    public static boolean checkFirstAndLastLetter(String word) {
+        return word.charAt(0) == word.charAt(word.length() - 1);
+    }
+
     public static int findFirstAnLastSameLetter(String[][][][][] array) {
         int result = 0;
         for (int i = 0; i < array.length; i++) {
@@ -270,7 +275,8 @@ public class Main {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
                         for (int m = 0; m < array[i][j][k][l].length; m++) {
-                            if (array[i][j][k][l][m].charAt(0) == array[i][j][k][l][m].charAt(array[i][j][k][l][m].length() - 1)) {
+                            String temporaryWord = array[i][j][k][l][m];
+                            if (checkFirstAndLastLetter(temporaryWord)) {
                                 result++;
                             }
                         }

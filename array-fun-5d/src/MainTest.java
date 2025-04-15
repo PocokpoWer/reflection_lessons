@@ -5,6 +5,27 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class MainTest {
+    // Task21:
+    @Test
+    void shouldIsFreeOfEorRTrue() {
+        assertTrue(Main.isFreeOfEorR("baby"));
+    }
+
+    @Test
+    void shouldIsFreeOfEorRFalse() {
+        assertFalse(Main.isFreeOfEorR("hello"));
+    }
+
+    @Test
+    void shouldIsFreeOfEorRFalse2() {
+        assertFalse(Main.isFreeOfEorR("Edition"));
+    }
+
+    @Test
+    void shouldIsFreeOfEorRFalse3() {
+        assertFalse(Main.isFreeOfEorR("radar"));
+    }
+
     @Test
     void shouldFindArrayIndexWithoutEAndR() {
         String[][][][][] arrayOfTask21 = {
@@ -151,7 +172,18 @@ public class MainTest {
                         }
                 }
         };
-        assertTrue(Arrays.deepEquals(expected, Main.replaceToStringLength(arrayOfTask22)));
+        assertArrayEquals(expected, Main.replaceToStringLength(arrayOfTask22));
+    }
+
+    // Task23:
+    @Test
+    void shouldCheckFirstAndLastLetterTrue() {
+        assertTrue(Main.checkFirstAndLastLetter("radar"));
+    }
+
+    @Test
+    void shouldCheckFirstAndLastLetterFalse() {
+        assertFalse(Main.checkFirstAndLastLetter("hello"));
     }
 
     @Test
@@ -205,6 +237,7 @@ public class MainTest {
         assertEquals(26, Main.findFirstAnLastSameLetter(arrayOFTask23));
     }
 
+    // Task 24:
     @Test
     void shouldConcatenateAllString() {
         String[][][][][] arrayOfTask24 = {
