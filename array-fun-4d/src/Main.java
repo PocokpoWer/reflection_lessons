@@ -143,15 +143,15 @@ public class Main {
                 for (int k = 0; k < array[i][j].length; k++) {
                     for (int l = 0; l < array[i][j][k].length; l++) {
                         String word = array[i][j][k][l];
-                        String asd = "";
+                        StringBuilder secondWord = new StringBuilder();
                         if (word != null && !word.isEmpty()) {
                             for (int n = 0; n < word.length(); n++) {
                                 if (!Character.isLowerCase(word.charAt(n))) {
                                     break;
                                 }
-                                asd += word.charAt(n);
+                                secondWord.append(n);
                             }
-                            if (word.length() == asd.length()) {
+                            if (word.length() == secondWord.length()) {
                                 counter++;
                             }
                         }
