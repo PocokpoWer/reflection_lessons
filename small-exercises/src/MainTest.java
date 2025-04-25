@@ -9,7 +9,17 @@ public class MainTest {
     }
 
     @Test
-    void shouldCounterText() {
-        assertEquals(4, Main.counterText("asdadshelloashelloadfdfkdfksbhelloadgjavsdahello"));
+    void shouldCountLetterBZero() {
+        assertEquals(0, Main.countLetterB("sdasakiudaiueeaasda"));
+    }
+
+    @Test
+    void shouldCountHellos() {
+        assertEquals(4, Main.countHellos("asdadshelloashelloadfdfkdfksbhelloadgjavsdahello"));
+    }
+
+    @Test
+    void shouldCountHellosZero() {
+        assertEquals(0, Main.countHellos("asdadslloaslloadfdfkdfksbadgjavsdlo"));
     }
 }
