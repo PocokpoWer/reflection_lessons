@@ -40,6 +40,7 @@ public class Main {
             return candidate;
         }
     }
+    // Big O: (n^2)
 
     // Extra task:
     public static boolean isNumber(int[] array, int number) {

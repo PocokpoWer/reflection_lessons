@@ -2,7 +2,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainTest {
+    @Test
+    void shouldCalcRecamanSequence() {
+        List<Integer> sequence = new ArrayList<>();
+        int number = Main.calcRecamanSequence(6, sequence);
+        List<Integer> expected = List.of(0, 1, 3, 6, 2, 7, 13);
+        assertEquals(expected, sequence);
+    }
+
     @Test
     void shouldIsNumberTrue() {
         int[] expected = {0, 1, 3, 6, 2};
