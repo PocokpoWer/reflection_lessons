@@ -17,7 +17,7 @@ public class SmallTasks {
         }
         for (int i = 0; i < userNumbers.length; i++) {
             double squareNumber = Math.sqrt(userNumbers[i]);
-            if (squareNumber % 1 == 0 && squareNumber % 2 == 0) {
+            if (squareNumber % 1 == 0 && userNumbers[i] % 2 == 0) {
                 numbers[i] = true;
             }
         }

@@ -6,32 +6,32 @@ public class MainTest {
     // Task 1:
     @Test
     void shouldIsNumberTrue() {
-        assertTrue(LargeTasks.isNumber(21));
+        assertTrue(LargeTasks.isValid(21));
     }
 
     @Test
     void shouldIsNumberTrueTwo() {
-        assertTrue(LargeTasks.isNumber(999_999));
+        assertTrue(LargeTasks.isValid(999_999));
     }
 
     @Test
     void shouldIsNumberTrueThree() {
-        assertTrue(LargeTasks.isNumber(500));
+        assertTrue(LargeTasks.isValid(500));
     }
 
     @Test
     void shouldIsNumberFalse() {
-        assertFalse(LargeTasks.isNumber(20));
+        assertFalse(LargeTasks.isValid(20));
     }
 
     @Test
     void shouldIsNumberFalseTwo() {
-        assertFalse(LargeTasks.isNumber(1_000_000));
+        assertFalse(LargeTasks.isValid(1_000_000));
     }
 
     @Test
     void shouldIsNumberFalseThree() {
-        assertFalse(LargeTasks.isNumber(1));
+        assertFalse(LargeTasks.isValid(1));
     }
 
     @Test

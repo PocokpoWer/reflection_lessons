@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class LargeTasks {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Task 1:");
         System.out.println("Enter a number: ");
         int userNumber = scanner.nextInt();
-        while (!isNumber(userNumber)) {
+        while (!isValid(userNumber)) {
             userNumber = scanner.nextInt();
         }
 
@@ -21,7 +22,7 @@ public class LargeTasks {
     // Generate the list of factorial values less than the number,
     // and return the sum of every second factorial. Include tests
     // for input and factorial logic. Test all your methods properly.
-    public static boolean isNumber(int input) {
+    public static boolean isValid(int input) {
         return input > 20 && input < 1_000_000;
     }
 
