@@ -14,7 +14,7 @@ public class FifthTask {
         List<Integer> arrayOfTaskFour = getDivisorNumber(userInput);
         int result = 0;
         for (int current : arrayOfTaskFour) {
-            if (isPrimNumber(current) && current > result) {
+            if (isPrimeNumber(current) && current > result) {
                 result = current;
             }
         }
@@ -24,13 +24,13 @@ public class FifthTask {
         } else {
             System.out.println("There are no primes among the numbers.");
             for (int i = greatestDivisor; i <= userInput; i++) {
-                if (isPrimNumber(i)) {
+                if (isPrimeNumber(i)) {
                     System.out.println(i);
                     break;
                 }
             }
             for (int i = greatestDivisor; i >= 0; i--) {
-                if (isPrimNumber(i)) {
+                if (isPrimeNumber(i)) {
                     System.out.println(i);
                     break;
                 }
@@ -38,7 +38,7 @@ public class FifthTask {
         }
     }
 
-    public static boolean isPrimNumber(int number) {
+    public static boolean isPrimeNumber(int number) {
         if (number == 2 || number == 3 || number == 5) {
             return true;
         }

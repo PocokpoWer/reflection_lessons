@@ -7,17 +7,17 @@ import java.util.List;
 public class FifthTaskTest {
     @Test
     void shouldIsPrimeNumberTrue() {
-        assertTrue(FifthTask.isPrimNumber(7));
+        assertTrue(FifthTask.isPrimeNumber(7));
     }
 
     @Test
     void shouldIsPrimeNumberFalse() {
-        assertFalse(FifthTask.isPrimNumber(1));
+        assertFalse(FifthTask.isPrimeNumber(1));
     }
 
     @Test
     void shouldIsPrimeNumberFalseTwo() {
-        assertFalse(FifthTask.isPrimNumber(12));
+        assertFalse(FifthTask.isPrimeNumber(12));
     }
 
     @Test
