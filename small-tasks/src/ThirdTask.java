@@ -5,13 +5,13 @@ public class ThirdTask {
         int[] array = {1, 6, 2, 6, 4, 6, 5};
         System.out.println("The mode of the array: " + getMode(array));
 
-        int[] arrayOfTaskThree = {6, 1, 3, 4};
+        int[] arrayOfTaskThree = {4, 2, 1, 9};
         System.out.println(getMedian(arrayOfTaskThree));
 
         int[] arrayOfTask3 = {2, 4, 7, 2, 5, 8, 3, 1};
         int mode = getMode(arrayOfTask3);
         double median = getMedian(arrayOfTask3);
-        System.out.println(getModeMedianPower(mode, median));
+        System.out.println(calcPower(mode, median));
     }
 
     public static int getMode(int[] array) {
@@ -44,15 +44,14 @@ public class ThirdTask {
     }
 
     public static double getMedian(int[] array) {
-        Arrays.stream(array).sorted().toArray();
+        Arrays.sort(array);
         if (array.length % 2 == 0) {
-            return ((double) array[array.length / 2] + (double) array[(array.length / 2) + 1]) / 2;
-        } else {
-            return array[(array.length / 2) + 1];
+            return (double) (array[array.length / 2 - 1] + array[(array.length / 2)]) / 2;
         }
+        return array[(array.length / 2)];
     }
 
-    public static int getModeMedianPower(int mode, double median) {
-        return (int) Math.pow(mode, median);
+    public static int calcPower(int a, double b) {
+        return (int) Math.pow(a, b);
     }
 }
