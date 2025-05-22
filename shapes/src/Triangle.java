@@ -14,4 +14,9 @@ public class Triangle extends Shape {
     public double getArea() {
         return (Math.sqrt(3) / 4) * side * side;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle side : " + side + " " + super.toString();
+    }
 }

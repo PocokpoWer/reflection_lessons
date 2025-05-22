@@ -1,5 +1,5 @@
 public class RegularHexagon extends Shape {
-    double side;
+    private double side;
 
     public RegularHexagon(double side) {
         this.side = side;
@@ -13,5 +13,10 @@ public class RegularHexagon extends Shape {
     @Override
     public double getArea() {
         return (3 * Math.sqrt(3) / 2) * side * side;
+    }
+
+    @Override
+    public String toString() {
+        return "Regular Hexagon side: " + side + " " + super.toString();
     }
 }
