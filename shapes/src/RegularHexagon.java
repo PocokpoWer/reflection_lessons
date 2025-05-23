@@ -12,7 +12,7 @@ public class RegularHexagon extends Shape {
 
     @Override
     public double getArea() {
-        return (3 * Math.sqrt(3) / 2) * side * side;
+        return ((3 * Math.sqrt(3)) / 2) * side * side;
     }
 
     @Override
