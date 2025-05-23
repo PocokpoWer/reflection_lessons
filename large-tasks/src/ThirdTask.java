@@ -38,8 +38,7 @@ public class ThirdTask {
         System.out.println("The smallest prime number above " + increasePrimeNumber + " is:");
         System.out.println("The price of " + userInput + " scoops of ice cream is " + userInput * 275 + " HUF.");
         System.out.println("The volume of a cube with a side length of " + userInput + " meters is " + (int) Math.pow(userInput, 3) + " m^3.");
-        List<Integer> array = getCubeNumber(userInput);
-        System.out.println(isCubeNumber(userInput, array) ? userInput + " is cube number" : userInput + " isn't cube number");
+        System.out.println(isCubeNumber(userInput) ? userInput + " is cube number" : userInput + " isn't cube number");
         System.out.println(userInput + " HUF " + (double) userInput / 340 + " Euro");
         System.out.println(userInput == 4993 ? "BINGO!" : "");
     }
@@ -65,7 +64,7 @@ public class ThirdTask {
         if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0) {
             return false;
         }
-        for (int i = 7; i < Math.sqrt(number); i += 4) {
+        for (int i = 7; i <= Math.sqrt(number); i += 4) {
             if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
@@ -73,20 +72,8 @@ public class ThirdTask {
         return number > 1;
     }
 
-    public static List<Integer> getCubeNumber(int number) {
-        List<Integer> cubeNumbers = new ArrayList<>();
-        for (int i = 1; i <= number; i++) {
-            cubeNumbers.add((int) Math.pow(i, 3));
-        }
-        return cubeNumbers;
-    }
-
-    public static boolean isCubeNumber(int number, List<Integer> array) {
-        for (Integer integer : array) {
-            if (number == integer) {
-                return true;
-            }
-        }
-        return false;
+    public static boolean isCubeNumber(int number) {
+        int cube = (int) Math.round(Math.cbrt(number));
+        return cube * cube * cube == number;
     }
 }

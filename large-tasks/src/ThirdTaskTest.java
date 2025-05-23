@@ -32,20 +32,14 @@ public class ThirdTaskTest {
     }
 
     @Test
-    void shouldGetCubeNumber() {
-        List<Integer> expected = List.of(1, 8, 27, 64, 125, 216, 343, 512, 729, 1000);
-        assertEquals(expected, ThirdTask.getCubeNumber(10));
-    }
-
-    @Test
     void shouldIsCubeNumberTrue() {
         List<Integer> array = List.of(1, 8, 27, 64, 125, 216, 343, 512, 729, 1000);
-        assertTrue(ThirdTask.isCubeNumber(125, array));
+        assertTrue(ThirdTask.isCubeNumber(125));
     }
 
     @Test
     void shouldIsCubeNumberFalse() {
         List<Integer> array = List.of(1, 8, 27, 64, 125, 216, 343, 512, 729, 1000);
-        assertFalse(ThirdTask.isCubeNumber(888, array));
+        assertFalse(ThirdTask.isCubeNumber(888));
     }
 }
