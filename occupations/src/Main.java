@@ -16,7 +16,7 @@ public class Main {
             people[i] = new Person("Person" + i, 20 + i, gender);
         }
 
-        Chef[] chefs = new Chef[10];
+        Chef[] chefs = new Chef[5];
         for (int i = 0; i < 5; i++) {
             chefs[i] = new Chef();
         }
@@ -38,11 +38,11 @@ public class Main {
             p.printGoal();
         }
         String[] foods = {"pizza", "sushi", "goulash", "salad", "burger", "pasta", "tacos", "ramen", "curry", "paella"};
-        for (int i = 0; i < foods.length; i++) {
+        for (String food : foods) {
             for (Chef c : chefs) {
                 c.introduce();
                 c.printGoal();
-                c.cook(foods[i]);
+                System.out.println(c.cook(food));
             }
         }
     }

@@ -13,7 +13,7 @@ public class Person {
     }
 
     public void introduce() {
-        System.out.println("Hi, my name is " + name + ". I am " + age + ". I am a " + Gender.MAN);
+        System.out.printf("Hi, my name is %s. I am %d. I am a %s ", name, age, gender);
     }
 
     public void printGoal() {
