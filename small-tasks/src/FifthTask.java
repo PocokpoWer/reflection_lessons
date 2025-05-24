@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class FifthTask {
@@ -11,30 +9,26 @@ public class FifthTask {
             System.out.println("Please enter a number: ");
             userInput = scanner.nextInt();
         }
-        List<Integer> arrayOfTaskFour = getDivisorNumber(userInput);
-        int result = 0;
-        for (int current : arrayOfTaskFour) {
-            if (isPrimeNumber(current) && current > result) {
-                result = current;
+        int divisor = 0;
+        int primeDivisor = 0;
+        for (int i = 1; i < userInput; i++) {
+            if (userInput % i == 0) {
+                if (i > divisor) {
+                    divisor = i;
+                }
+                if (isPrimeNumber(i) && i > primeDivisor) {
+                    primeDivisor = i;
+                }
             }
         }
-        int greatestDivisor = arrayOfTaskFour.getLast();
-        if (result != 0) {
-            System.out.println(result);
+        if (primeDivisor != 0) {
+            System.out.println("Greatest prime divisor: " + primeDivisor);
         } else {
             System.out.println("There are no primes among the numbers.");
-            for (int i = greatestDivisor; i <= userInput; i++) {
-                if (isPrimeNumber(i)) {
-                    System.out.println(i);
-                    break;
-                }
-            }
-            for (int i = greatestDivisor; i >= 0; i--) {
-                if (isPrimeNumber(i)) {
-                    System.out.println(i);
-                    break;
-                }
-            }
+            int primeUp = findNextPrimeUp(divisor);
+            int primeDown = findNextPrimeDown(divisor);
+            System.out.println("Searching upwards, the smallest prime number is: " + primeUp);
+            System.out.println("Searching downwards, the largest prime number is: " + primeDown);
         }
     }
 
@@ -45,7 +39,7 @@ public class FifthTask {
         if (number % 2 == 0 || number % 3 == 0 || number % 5 == 0) {
             return false;
         }
-        for (int i = 7; i < Math.sqrt(number); i += 4) {
+        for (int i = 7; i <= Math.sqrt(number); i += 4) {
             if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
@@ -53,13 +47,24 @@ public class FifthTask {
         return number > 1;
     }
 
-    public static List<Integer> getDivisorNumber(int number) {
-        List<Integer> divisorNumbers = new ArrayList<>();
-        for (int i = 1; i <= number; i++) {
-            if (number % i == 0) {
-                divisorNumbers.add(i);
+    public static int findNextPrimeUp(int number) {
+        int candidate = number + 1;
+        while (true) {
+            if (isPrimeNumber(candidate)) {
+                return candidate;
             }
+            candidate++;
         }
-        return divisorNumbers;
+    }
+
+    public static int findNextPrimeDown(int number) {
+        int candidate = number - 1;
+        while (candidate >= 2) {
+            if (isPrimeNumber(candidate)) {
+                return candidate;
+            }
+            candidate--;
+        }
+        return 0;
     }
 }

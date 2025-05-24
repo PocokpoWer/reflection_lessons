@@ -2,8 +2,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 public class FifthTaskTest {
     @Test
     void shouldIsPrimeNumberTrue() {
@@ -12,7 +10,7 @@ public class FifthTaskTest {
 
     @Test
     void shouldIsPrimeNumberFalse() {
-        assertFalse(FifthTask.isPrimeNumber(1));
+        assertFalse(FifthTask.isPrimeNumber(49));
     }
 
     @Test
@@ -21,8 +19,12 @@ public class FifthTaskTest {
     }
 
     @Test
-    void shouldGetDivisorNumber() {
-        List<Integer> expected = List.of(1, 2, 4, 8);
-        assertEquals(expected, FifthTask.getDivisorNumber(8));
+    void shouldFindNextPrimeUp() {
+        assertEquals(7, FifthTask.findNextPrimeUp(5));
+    }
+
+    @Test
+    void shouldFindNextPrimeDown() {
+        assertEquals(13, FifthTask.findNextPrimeDown(14));
     }
 }
