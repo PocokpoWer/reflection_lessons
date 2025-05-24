@@ -29,14 +29,14 @@ public class MainTest {
 
     @Test
     void shouldTrianglePeriMeter() {
-        Triangle triangle = new Triangle(3);
-        assertEquals(9, triangle.getPerimeter());
+        Triangle triangle = new Triangle(3, 4, 5);
+        assertEquals(12, triangle.getPerimeter());
     }
 
     @Test
     void shouldTriangleArea() {
-        Triangle triangle = new Triangle(5);
-        assertEquals(7.5, triangle.getArea());
+        Triangle triangle = new Triangle(6, 4, 5);
+        assertEquals(9.92, triangle.getArea(), 0.01);
     }
 
     @Test

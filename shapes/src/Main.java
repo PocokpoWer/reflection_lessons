@@ -3,7 +3,7 @@ public class Main {
         Shape[] shapes = {
                 new Circle(5),
                 new Rectangle(5, 9),
-                new Triangle(4),
+                new Triangle(5, 6, 7),
                 new RegularHexagon(4)};
         for (Shape shape : shapes) {
             System.out.println(shape);
