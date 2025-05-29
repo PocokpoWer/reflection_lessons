@@ -9,7 +9,7 @@ public class MainTest {
     @Test
     void shouldCalcInstantRecamanSequence() {
         int[] expected = {0, 1, 3, 6, 2, 7, 13, 20, 12, 21, 11, 22, 10, 23, 9, 24, 8, 25, 43, 62};
-        assertArrayEquals(expected, Main.calcInstantRecamanSequence(20));
+        assertArrayEquals(expected, Main.countRecamanSequence(20));
     }
 
     @Test

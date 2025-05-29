@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,11 +9,15 @@ public class Main {
         System.out.println(array);
         System.out.println();
         System.out.println(Arrays.toString(calcRecamanSequenceWithForLoop(20)));
-        System.out.println(Arrays.toString(calcInstantRecamanSequence(15)));
+        System.out.println(Arrays.toString(countRecamanSequence(15)));
     }
 
-    public static int[] calcInstantRecamanSequence(int number) {
-        List<Integer> previousNumbers = new ArrayList<>();
+    public static int[] countRecamanSequence(int number) {
+        return calcInstantRecamanSequence(number);
+    }
+
+    private static int[] calcInstantRecamanSequence(int number) {
+        Set<Integer> previousNumbers = new HashSet<>();
         int[] sequence = new int[number];
         sequence[0] = 0;
         previousNumbers.add(0);
