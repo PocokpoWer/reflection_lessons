@@ -11,8 +11,26 @@ public class Main {
         System.out.println(array);
         System.out.println();
         System.out.println(Arrays.toString(calcRecamanSequenceWithForLoop(20)));
+        System.out.println(Arrays.toString(calcInstantRecamanSequence(15)));
     }
 
+    public static int[] calcInstantRecamanSequence(int number) {
+        List<Integer> previousNumbers = new ArrayList<>();
+        int[] sequence = new int[number];
+        sequence[0] = 0;
+        previousNumbers.add(0);
+        for (int i = 1; i < number; i++) {
+            int prev = sequence[i - 1];
+            int candidate = prev - i;
+            if (candidate > 0 && !previousNumbers.contains(candidate)) {
+                sequence[i] = candidate;
+            } else {
+                sequence[i] = prev + i;
+            }
+            previousNumbers.add(sequence[i]);
+        }
+        return sequence;
+    }
     // Task: Write a recursive algorithm to implement Recamán's sequence.
     // Write a recursive algorithm in a method
     //Understand how each element is calculated from the previously calculated element
