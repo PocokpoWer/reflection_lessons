@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Customer extends Store {
+public class Customer {
     private String name;
     private double walletBalance;
     private List<String> ownedGames = new ArrayList<>();

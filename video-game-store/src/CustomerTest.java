@@ -12,6 +12,7 @@ public class CustomerTest {
         customer.setWalletBalance(500);
         String expected = "Game is not in the stock!";
         assertEquals(expected, customer.purchaseGame(game));
+        assertEquals(500, customer.getWalletBalance());
     }
 
     @Test
@@ -23,6 +24,7 @@ public class CustomerTest {
         customer.setWalletBalance(500);
         String expected = "You have no money for this game.";
         assertEquals(expected, customer.purchaseGame(game));
+        assertEquals(500, customer.getWalletBalance());
     }
 
     @Test
@@ -34,5 +36,6 @@ public class CustomerTest {
         customer.setWalletBalance(500);
         String expected = "Game purchased successfully";
         assertEquals(expected, customer.purchaseGame(game));
+        assertEquals(300, customer.getWalletBalance());
     }
 }
