@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         collatzSequence(6);
+        System.out.println();
+        System.out.println(exponentiation(2, 5));
     }
 
     public static void collatzSequence(int number) {
@@ -13,5 +15,12 @@ public class Main {
                 collatzSequence(3 * number + 1);
             }
         }
+    }
+
+    public static int exponentiation(int number, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        }
+        return number * exponentiation(number, exponent - 1);
     }
 }
