@@ -17,7 +17,7 @@ public class Main {
     }
 
     private static int[] calcInstantRecamanSequence(int number) {
-        Set<Integer> previousNumbers = new HashSet<>();
+        Set<Integer> previousNumbers = new LinkedHashSet<>();
         int[] sequence = new int[number];
         sequence[0] = 0;
         previousNumbers.add(0);
