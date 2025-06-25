@@ -1,9 +1,9 @@
-import java.util.HashMap;
+import java.util.Map;
 
 public class Employee {
     private String name;
     private String department;
-    private HashMap<String, Integer> shiftHours;
+    private Map<String, Integer> shiftHours;
 
     public String getName() {
         return name;
@@ -13,11 +13,11 @@ public class Employee {
         return department;
     }
 
-    public HashMap<String, Integer> getShiftHours() {
+    public Map<String, Integer> getShiftHours() {
         return shiftHours;
     }
 
-    public Employee(String name, String department, HashMap<String, Integer> shiftHours) {
+    public Employee(String name, String department, Map<String, Integer> shiftHours) {
         this.name = name;
         this.department = department;
         this.shiftHours = shiftHours;

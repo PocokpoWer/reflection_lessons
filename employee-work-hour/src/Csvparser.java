@@ -13,15 +13,15 @@ public class Csvparser {
                 String[] splitLine = line.split(",");
                 String name = splitLine[0];
                 String department = splitLine[1];
-                HashMap<String, Integer> shiftHours = getStringIntegerHashMap(splitLine);
+                Map<String, Integer> shiftHours = getMap(splitLine);
                 employees.add(new Employee(name, department, shiftHours));
             }
         }
     }
 
-    private static HashMap<String, Integer> getStringIntegerHashMap(String[] splitLine) {
+    private static Map<String, Integer> getMap(String[] splitLine) {
         String[] weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-        HashMap<String, Integer> shiftHours = new HashMap<>();
+        Map<String, Integer> shiftHours = new HashMap<>();
         int weekDaysIndex = 0;
         shiftHours.put(weekDays[weekDaysIndex++], Integer.parseInt(splitLine[2]));
         shiftHours.put(weekDays[weekDaysIndex++], Integer.parseInt(splitLine[3]));

@@ -9,19 +9,19 @@ public class Main {
         List<Employee> employees = csvparser.employees;
 
         // Determine the total weekly hours worked for each employee
-        analyzer.printEmployeeList(employees);
-
+        System.out.println(analyzer.printEmployeeList(employees));
+        System.out.println();
         // Calculate the average daily hours for each employee
-        analyzer.calculateDailyHourAverage(employees);
-
+        System.out.println(analyzer.calculateDailyHourAverage(employees));
+        System.out.println();
         // Determine the average weekly hours in each department
-        analyzer.calculateWeeklyHourAverage(employees);
-
-        // Determine the average weekly hours in each department
-        analyzer.calculateWeeklylAverageDepartment(employees);
-
+        System.out.println(analyzer.calculateWeeklyHourAverage(employees));
+        System.out.println();
         // Identify the employee with the highest total hours globally
-        analyzer.calculateHighestTotalHour(employees);
+        System.out.println(analyzer.calculateHighestTotalHour(employees));
+        System.out.println();
+        // Identify the employee with the highest total hours in each department
+        System.out.println(analyzer.calculateHighestTotalHoursEachDepartment(employees));
 
 
     }

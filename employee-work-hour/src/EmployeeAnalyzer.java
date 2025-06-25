@@ -1,22 +1,27 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeAnalyzer {
 
-    public void printEmployeeList(List<Employee> list) {
+    public Map<String, Integer> printEmployeeList(List<Employee> list) {
+        Map<String, Integer> result = new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
-            System.out.printf("%s %d %n", list.get(i).getName(), sumTotalWeeklyHours(list.get(i).getShiftHours()));
+            result.put(list.get(i).getName(), sumTotalWeeklyHours(list.get(i).getShiftHours()));
         }
+        return result;
     }
 
-    public void calculateDailyHourAverage(List<Employee> list) {
+    public Map<String, Double> calculateDailyHourAverage(List<Employee> list) {
+        Map<String, Double> result = new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
-            System.out.printf("%s %.2f %n", list.get(i).getName(), calcAverageWeeklyHours(list.get(i).getShiftHours()));
+            result.put(list.get(i).getName(), calcAverageWeeklyHours(list.get(i).getShiftHours()));
         }
+        return result;
     }
 
-    public void calculateWeeklyHourAverage(List<Employee> list) {
+    public Map<String, Double> calculateWeeklyHourAverage(List<Employee> list) {
+        Map<String, Double> result = new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
             String currentDepartment = list.get(i).getDepartment();
             boolean alreadyPrinted = false;
@@ -40,19 +45,14 @@ public class EmployeeAnalyzer {
                 }
 
                 double avg = (double) sum / count;
-                System.out.printf("%s average weekly hours: %.2f%n", currentDepartment, avg);
+                result.put(currentDepartment, avg);
             }
         }
+        return result;
     }
 
-    public void calculateWeeklylAverageDepartment(List<Employee> list) {
-        List<Integer> sumHours = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            System.out.printf("%s %d %n", list.get(i).getDepartment(), sumTotalWeeklyHours(list.get(i).getShiftHours()));
-        }
-    }
-
-    public void calculateHighestTotalHour(List<Employee> list) {
+    public Map<String, Integer> calculateHighestTotalHour(List<Employee> list) {
+        Map<String, Integer> result = new HashMap<>();
         int weeklyHour = sumTotalWeeklyHours(list.get(0).getShiftHours());
         String employeeName = list.get(0).getName();
         for (int i = 1; i < list.size(); i++) {
@@ -61,10 +61,26 @@ public class EmployeeAnalyzer {
                 weeklyHour = sumTotalWeeklyHours(list.get(i).getShiftHours());
             }
         }
-        System.out.printf("%s highest total with %d hours %n", employeeName, weeklyHour);
+        result.put(employeeName, weeklyHour);
+        return result;
     }
 
-    public static int sumTotalWeeklyHours(HashMap<String, Integer> number) {
+    public Map<String, String> calculateHighestTotalHoursEachDepartment(List<Employee> list) {
+        Map<String, String> topEmployee = new HashMap<>();
+        Map<String, Integer> shiftHours = new HashMap<>();
+        for (Employee employee : list) {
+            String department = employee.getDepartment();
+            int weeklyHours = sumTotalWeeklyHours(employee.getShiftHours());
+            if (!shiftHours.containsKey(department) || weeklyHours > shiftHours.get(department)) {
+                shiftHours.put(department, weeklyHours);
+                topEmployee.put(department, employee.getName());
+            }
+        }
+        return topEmployee;
+    }
+
+
+    public static int sumTotalWeeklyHours(Map<String, Integer> number) {
         int result = 0;
         for (Integer integer : number.values()) {
             result += integer;
@@ -72,7 +88,7 @@ public class EmployeeAnalyzer {
         return result;
     }
 
-    public static double calcAverageWeeklyHours(HashMap<String, Integer> number) {
+    public static double calcAverageWeeklyHours(Map<String, Integer> number) {
         int result = 0;
         for (Integer integer : number.values()) {
             result += integer;
