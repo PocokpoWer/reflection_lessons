@@ -10,8 +10,8 @@ import java.util.Map;
 public class EmployeeAnalyzerTest {
     @Test
     public void shouldPrintEmployeeList() {
-        Map<String, Integer> exception = new HashMap<>();
-        exception.put("Tibor", 13);
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("Tibor", 13);
         List<Employee> testList = new ArrayList<>();
         Map<String, Integer> shift = new HashMap<>();
         shift.put("Monday", 8);
@@ -20,13 +20,13 @@ public class EmployeeAnalyzerTest {
         shift.put("Friday", 1);
         testList.add(new Employee("Tibor", "Igazgató", shift));
         EmployeeAnalyzer employeeanalyzer = new EmployeeAnalyzer();
-        assertEquals(exception, employeeanalyzer.printEmployeeList(testList));
+        assertEquals(expected, employeeanalyzer.printEmployeeList(testList));
     }
 
     @Test
     public void shouldCalculateDailyHourAverage() {
-        Map<String, Double> exception = new HashMap<>();
-        exception.put("Dezső", 4.25);
+        Map<String, Double> expected = new HashMap<>();
+        expected.put("Dezső", 4.25);
         List<Employee> testList = new ArrayList<>();
         Map<String, Integer> shift = new HashMap<>();
         shift.put("Monday", 4);
@@ -35,7 +35,7 @@ public class EmployeeAnalyzerTest {
         shift.put("Friday", 3);
         testList.add(new Employee("Dezső", "Konyhás", shift));
         EmployeeAnalyzer employeeanalyzer = new EmployeeAnalyzer();
-        assertEquals(exception, employeeanalyzer.calculateDailyHourAverage(testList));
+        assertEquals(expected, employeeanalyzer.calculateDailyHourAverage(testList));
     }
 
     @Test
