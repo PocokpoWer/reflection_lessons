@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Csvparser csvparser = new Csvparser();
+        CsvParser csvparser = new CsvParser();
         EmployeeAnalyzer analyzer = new EmployeeAnalyzer();
-        csvparser.reader("c:\\employee_hours.csv");
+        csvparser.read("c:\\employee_hours.csv");
         List<Employee> employees = csvparser.employees;
 
         // Determine the total weekly hours worked for each employee

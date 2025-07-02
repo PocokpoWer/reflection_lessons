@@ -6,16 +6,16 @@ public class EmployeeAnalyzer {
 
     public Map<String, Integer> printEmployeeList(List<Employee> list) {
         Map<String, Integer> result = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            result.put(list.get(i).getName(), sumTotalWeeklyHours(list.get(i).getShiftHours()));
+        for (Employee employee : list) {
+            result.put(employee.getName(), sumTotalWeeklyHours(employee.getShiftHours()));
         }
         return result;
     }
 
     public Map<String, Double> calculateDailyHourAverage(List<Employee> list) {
         Map<String, Double> result = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            result.put(list.get(i).getName(), calcAverageWeeklyHours(list.get(i).getShiftHours()));
+        for (Employee employee : list) {
+            result.put(employee.getName(), ((double) sumTotalWeeklyHours(employee.getShiftHours())) / list.size());
         }
         return result;
     }
@@ -37,9 +37,9 @@ public class EmployeeAnalyzer {
                 int sum = 0;
                 int count = 0;
 
-                for (int j = 0; j < list.size(); j++) {
-                    if (list.get(j).getDepartment().equals(currentDepartment)) {
-                        sum += sumTotalWeeklyHours(list.get(j).getShiftHours());
+                for (Employee employee : list) {
+                    if (employee.getDepartment().equals(currentDepartment)) {
+                        sum += sumTotalWeeklyHours(employee.getShiftHours());
                         count++;
                     }
                 }
@@ -79,20 +79,11 @@ public class EmployeeAnalyzer {
         return topEmployee;
     }
 
-
     public static int sumTotalWeeklyHours(Map<String, Integer> number) {
         int result = 0;
         for (Integer integer : number.values()) {
             result += integer;
         }
         return result;
-    }
-
-    public static double calcAverageWeeklyHours(Map<String, Integer> number) {
-        int result = 0;
-        for (Integer integer : number.values()) {
-            result += integer;
-        }
-        return (double) result / number.size();
     }
 }
