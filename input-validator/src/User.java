@@ -1,7 +1,7 @@
 public class User {
-    String username;
-    String email;
-    String comment;
+    private String username;
+    private String email;
+    private String comment;
 
     public User(String username, String email, String comment) {
         this.username = username;
@@ -9,8 +9,20 @@ public class User {
         this.comment = comment;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
     @Override
     public String toString() {
-        return username + " , " + email + " , " + comment;
+        return String.format("Name: %s, Email: %s, Comment: %s\n",username,email,comment);
     }
 }
