@@ -7,5 +7,6 @@ public class Main {
 
         consoleLogger.log("Hello World!");
         fileLogger.log("Lilu Dallas Multi Pass");
+        fileLogger.log("something message");
     }
 }

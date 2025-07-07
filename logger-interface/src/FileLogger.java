@@ -4,13 +4,15 @@ import java.io.IOException;
 
 public class FileLogger implements Logger {
     private String fileName;
+    BufferedWriter writer;
 
-    public FileLogger(String fileName) {
+    public FileLogger(String fileName) throws IOException {
         this.fileName = fileName;
+        this.writer = new BufferedWriter(new FileWriter(fileName, true));
     }
+
     @Override
     public void log(String message) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
         writer.write(message);
         writer.newLine();
         writer.flush();
