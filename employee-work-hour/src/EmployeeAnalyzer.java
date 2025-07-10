@@ -15,7 +15,8 @@ public class EmployeeAnalyzer {
     public Map<String, Double> calculateDailyHourAverage(List<Employee> list) {
         Map<String, Double> result = new HashMap<>();
         for (Employee employee : list) {
-            result.put(employee.getName(), ((double) sumTotalWeeklyHours(employee.getShiftHours())) / list.size());
+            Map<String, Integer> shiftHours = employee.getShiftHours();
+            result.put(employee.getName(), ((double) sumTotalWeeklyHours(employee.getShiftHours())) / shiftHours.size());
         }
         return result;
     }
