@@ -2,7 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RentalSystem {
-    List<Car> availableCars = new ArrayList<>();
+    private List<Car> availableCars = new ArrayList<>();
+
+    public List<Car> getAvailableCars() {
+        return availableCars;
+    }
 
     public void addCar(Car car) {
         availableCars.add(car);
@@ -17,7 +21,7 @@ public class RentalSystem {
     Car findCarByPlateNumber(String plateNumber) {
         Car foundCar = null;
         for (Car cars : availableCars) {
-            if (cars.plateNumber.equals(plateNumber)) {
+            if (cars.getPlateNumber().equals(plateNumber)) {
                 foundCar = cars;
             }
         }
@@ -26,6 +30,6 @@ public class RentalSystem {
 
     void rentCar(Car car, int days) {
         double totalPrice = car.calculateRentalCost(days);
-        System.out.printf("You can rent %s for %s day. Total price: %.2f EUR", car, days, totalPrice);
+        System.out.printf("You can rent %s for %s day. Total price: %.2f EUR%n", car, days, totalPrice);
     }
 }

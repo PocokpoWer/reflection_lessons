@@ -1,3 +1,3 @@
 public enum Brand {
-    TRABANT,MERCEDES,BMW
+    TRABANT, MERCEDES, BMW
 }

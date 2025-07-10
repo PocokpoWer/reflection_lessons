@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RentalSystemTest {
-    RentalSystem rentalSystem;
-    Car car1, car2;
+    private RentalSystem rentalSystem;
+    private Car car1, car2;
 
     @BeforeEach
     public void setUp() {
@@ -18,14 +18,14 @@ public class RentalSystemTest {
 
     @Test
     public void shouldAddCar() {
-        assertEquals(2, rentalSystem.availableCars.size());
+        assertEquals(2, rentalSystem.getAvailableCars().size());
     }
 
     @Test
     public void shouldFindCarByPlateNumberFound() {
         Car found = rentalSystem.findCarByPlateNumber("bbb222");
         assertNotNull(found);
-        assertEquals("bbb222", found.plateNumber);
+        assertEquals("bbb222", found.getPlateNumber());
     }
 
     @Test

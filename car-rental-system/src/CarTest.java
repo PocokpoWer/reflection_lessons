@@ -7,6 +7,6 @@ public class CarTest {
     public void shouldCalculateRentalCost() {
         Car car = new Car("asd-123", 4.2, Brand.BMW, "i5");
         double expected = 12.60;
-        assertEquals(expected, car.calculateRentalCost(3),0.01);
+        assertEquals(expected, car.calculateRentalCost(3), 0.01);
     }
 }
