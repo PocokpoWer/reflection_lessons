@@ -11,22 +11,25 @@ public class UserCommentAnalyzer {
         Validator<String> commentvalidator = new CommentValidator();
         List<User> users = new ArrayList<>();
         List<String> fileContent = Files.readAllLines(Path.of(file));
+
         for (String line : fileContent) {
             String[] splitLine = line.split(",", 3);
             String userName = Sanitizer.sanitize(splitLine[0]);
             String email = Sanitizer.sanitize(splitLine[1]);
             String comment = Sanitizer.sanitize(splitLine[2]);
-            boolean validUser = usernamevalidator.isValid(userName);
-            boolean validEmail = emailvalidator.isValid(email);
-            boolean validComment = commentvalidator.isValid(comment);
+            boolean isValidUser = usernamevalidator.isValid(userName);
+            boolean isValidEmail = emailvalidator.isValid(email);
+            boolean isValidComment = commentvalidator.isValid(comment);
 
-            if (!(validUser || validEmail || validComment)) {
-                continue;
+            if (!isValidUser) {
+                userName = "";
             }
-
-            if (!validUser) userName = "";
-            if (!validEmail) email = "";
-            if (!validComment) comment = "";
+            if (!isValidEmail) {
+                email = "";
+            }
+            if (!isValidComment) {
+                comment = "";
+            }
 
             users.add(new User(userName, email, comment));
         }
