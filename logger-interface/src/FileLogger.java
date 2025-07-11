@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class FileLogger implements Logger {
     private String fileName;
-    BufferedWriter writer;
+    private BufferedWriter writer;
 
     public FileLogger(String fileName) throws IOException {
         this.fileName = fileName;
@@ -16,5 +16,9 @@ public class FileLogger implements Logger {
         writer.write(message);
         writer.newLine();
         writer.flush();
+    }
+
+    void close() throws IOException {
+        writer.close();
     }
 }
