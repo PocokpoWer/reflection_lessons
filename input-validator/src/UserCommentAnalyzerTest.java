@@ -1,8 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,18 +8,17 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class UserCommentAnalyzerTest {
-    private Path tempFile;
+    private static Path tempFile;
 
-    @BeforeEach
-    void setUp() throws IOException {
+    @BeforeAll
+    static void setUp() throws IOException {
         tempFile = Files.createTempFile("sampletest2", ".csv");
 
         List<String> lines = List.of("Lilu,liludallas@email.hu,Lilu Dallas Multi Pass", "Dzseki Csen,valami:).hu@email,this comment");
         Files.write(tempFile, lines);
     }
-
-    @AfterEach
-    void tearDown() throws IOException {
+    @AfterAll
+    static void tearDown() throws IOException {
         Files.deleteIfExists(tempFile);
     }
 
