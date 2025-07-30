@@ -23,10 +23,8 @@ public class EmailManager {
     }
 
     void deleteEmail(String email) {
-        if (emails.contains(email)) {
-            emails.remove(email);
-        } else {
-            System.out.printf("Email not found %s\n", email);
+        if (!emails.remove(email)) {
+            System.out.printf("Email not found %s%n\n", email);
         }
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-public class EmailNodeTest {
+public class EmailManagerTest {
     @Test
     void shouldGetEmailList() {
         EmailManager emailManager = new EmailManager();

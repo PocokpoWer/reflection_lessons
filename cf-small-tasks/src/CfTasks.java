@@ -37,36 +37,26 @@ public class CfTasks {
     }
 
     // Task 4:
-    public static String getUniqueLetters(String input) {
-        Set<Character> addLetters = new LinkedHashSet<>();
+    public static int getUniqueLetters(String input) {
+        Set<Character> letters = new HashSet<>();
         for (int i = 0; i < input.length(); i++) {
-            addLetters.add(input.charAt(i));
+            letters.add(input.charAt(i));
         }
-        StringBuilder stringBuilder = new StringBuilder();
-        for (char ch : addLetters) {
-            stringBuilder.append(ch);
-        }
-        return stringBuilder.toString();
+        return letters.size();
     }
 
     // Task 5:
-    public static List<Integer> getDuplicationNumbers(List<Integer> input) {
+    public static boolean getDuplicationNumbers(List<Integer> input) {
         Set<Integer> seen = new HashSet<>();
-        Set<Integer> duplicatesNumbers = new LinkedHashSet<>();
-
-        for (int number : input) {
-            if (!seen.add(number)) {
-                duplicatesNumbers.add(number);
-            }
-        }
-        return new ArrayList<>(duplicatesNumbers);
+        seen.addAll(input);
+        return seen.size() < input.size();
     }
 
     // Task 6:
     public static int filterDuplicationNumber(List<Integer> list1, List<Integer> list2) {
         int result = 0;
-        Set<Integer> sortList1 = new LinkedHashSet<>(list1);
-        Set<Integer> sortList2 = new LinkedHashSet<>(list2);
+        Set<Integer> sortList1 = new HashSet<>(list1);
+        Set<Integer> sortList2 = new HashSet<>(list2);
         if (sortList1.size() > sortList2.size()) {
             result = 1;
         } else if (sortList1.size() < sortList2.size()) {

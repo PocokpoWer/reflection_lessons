@@ -30,15 +30,20 @@ public class CfTasksTest {
     @Test
     void shouldGetUniqueLetters() {
         String word = "developed";
-        String expected = "devlop";
+        int expected = 6;
         assertEquals(expected, CfTasks.getUniqueLetters(word));
     }
 
     @Test
-    void shouldGetDuplicationNumbers() {
+    void shouldGetDuplicationNumbersTrue() {
         List<Integer> listOfTest = List.of(2, 5, 6, 4, 2, 9, 5, 8, 6, 10);
-        List<Integer> expected = List.of(2, 5, 6);
-        assertEquals(expected, CfTasks.getDuplicationNumbers(listOfTest));
+        assertTrue(CfTasks.getDuplicationNumbers(listOfTest));
+    }
+
+    @Test
+    void shouldGetDuplicationNumbersFalse() {
+        List<Integer> listOfTest = List.of(2, 5, 6, 4, 9, 8, 10);
+        assertFalse(CfTasks.getDuplicationNumbers(listOfTest));
     }
 
     @Test
@@ -47,15 +52,17 @@ public class CfTasksTest {
         List<Integer> listoftest_2 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         assertEquals(2, CfTasks.filterDuplicationNumber(listoftest_1, listoftest_2));
     }
+
     @Test
     void shouldFilterDuplicationNumber2() {
-        List<Integer> listoftest_1 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9,10);
+        List<Integer> listoftest_1 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> listoftest_2 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
         assertEquals(1, CfTasks.filterDuplicationNumber(listoftest_1, listoftest_2));
     }
+
     @Test
     void shouldFilterDuplicationNumber3() {
-        List<Integer> listoftest_1 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9,10);
+        List<Integer> listoftest_1 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> listoftest_2 = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         assertEquals(0, CfTasks.filterDuplicationNumber(listoftest_1, listoftest_2));
     }
