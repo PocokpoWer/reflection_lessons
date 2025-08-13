@@ -1,8 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.sun.source.tree.Tree;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.common.TextParsingException;
 
 import java.util.*;
 
@@ -51,18 +49,18 @@ public class MainTest {
 
     // Task 5:
     @Test
-    void shouldReturnTrueIsUniqueNumber() {
-        assertTrue(Main.isUniqueNumber("orange"));
+    void shouldReturnTrueIsUniqueLetter() {
+        assertTrue(Main.isUniqueLetter("orange"));
     }
 
     @Test
-    void shouldReturnFalseIsUniqueNumber() {
-        assertFalse(Main.isUniqueNumber("character"));
+    void shouldReturnFalseIsUniqueLetter() {
+        assertFalse(Main.isUniqueLetter("character"));
     }
 
     // Task 6:
     @Test
-    void shouldSortNumbers() {
+    void shouldMergeLists() {
         List<Integer> listOfTest1 = new ArrayList<>();
         listOfTest1.add(4);
         listOfTest1.add(2);
@@ -73,7 +71,7 @@ public class MainTest {
         listOfTest2.add(3);
         listOfTest2.add(8);
         List<Integer> expected = List.of(2, 2, 3, 4, 5, 6, 8);
-        assertEquals(expected, Main.sortNumbers(listOfTest1, listOfTest2));
+        assertEquals(expected, Main.mergeLists(listOfTest1, listOfTest2));
     }
 
     // Task 7:
@@ -93,18 +91,28 @@ public class MainTest {
     // Task 8:
     @Test
     void shouldGetCommonElements() {
-        List<Integer> listOfTest = List.of(2, 3, 4, 5, 6);
-        List<Integer> listOfTest_2 = List.of(6, 3, 5, 7, 1);
-        List<Integer> expected = List.of(3, 5, 6);
+        List<Integer> listOfTest = new ArrayList<>();
+        listOfTest.add(2);
+        listOfTest.add(3);
+        listOfTest.add(4);
+        listOfTest.add(5);
+        listOfTest.add(6);
+        List<Integer> listOfTest_2 = new ArrayList<>();
+        listOfTest_2.add(6);
+        listOfTest_2.add(3);
+        listOfTest_2.add(5);
+        listOfTest_2.add(7);
+        listOfTest_2.add(1);
+        Set<Integer> expected = Set.of(3, 5, 6);
         assertEquals(expected, Main.getCommonElements(listOfTest, listOfTest_2));
     }
 
     // Task 9:
     @Test
-    void shouldGetFrequencyWord() {
+    void shouldGetWordFrequency() {
         String wordsOfTest = "Bazilika motor bazilika templom";
         String expected = "bazilika";
-        assertEquals(expected, Main.getFrequencyWord(wordsOfTest));
+        assertEquals(expected, Main.getWordFrequency(wordsOfTest));
     }
 
     // Task 10:
@@ -125,18 +133,18 @@ public class MainTest {
 
     // Task 12:
     @Test
-    void shouldGetFrequentStartLetter() {
+    void shouldGetMostFrequentStartLetter() {
         String wordOfTest = "\"car\", \"fly\", \"banana\", \"yellow\", \"jazz\", \"busy\"";
         char expecxted = 'b';
-        assertEquals(expecxted, Main.getFrequentStartLetter(wordOfTest));
+        assertEquals(expecxted, Main.getMostFrequentStartLetter(wordOfTest));
     }
 
     // Task 13:
     @Test
-    void shouldGetFrequentChar() {
+    void shouldGetMostFrequentChar() {
         String lettersOfTest = "gggbbuuuujjjk";
         char expected = 'u';
-        assertEquals(expected, Main.getFrequentChar(lettersOfTest));
+        assertEquals(expected, Main.getMostFrequentChar(lettersOfTest));
     }
 
     // Task 14:
@@ -151,8 +159,8 @@ public class MainTest {
     // Task 15:
     @Test
     void shouldCountUniqueLetters() {
-        String lettersOfTest = "llleeeeppffuutttt";
-        int expected = 6;
+        String lettersOfTest = "aabcbcdbca";
+        int expected = 4;
         assertEquals(expected, Main.countUniqueLetters(lettersOfTest));
     }
 
@@ -182,10 +190,10 @@ public class MainTest {
 
     // Task 18:
     @Test
-    void shouldGetFrequentWord() {
+    void shouldGetMostFrequentWord() {
         List<String> wordOfTest = List.of("orange", "motor", "orange", "car", "car", "orange");
         String expected = "orange";
-        assertEquals(expected, Main.getFrequentWord(wordOfTest));
+        assertEquals(expected, Main.getMostFrequentWord(wordOfTest));
     }
 
     // Task 19:

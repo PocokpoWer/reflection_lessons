@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.*;
 
 public class Main {
@@ -28,7 +27,7 @@ public class Main {
 
         System.out.println("Task 5:");
         String wordOfTask5 = "ball";
-        System.out.println(isUniqueNumber(wordOfTask5) + "\n");
+        System.out.println(isUniqueLetter(wordOfTask5) + "\n");
 
         System.out.println("Task 6:");
         List<Integer> listOfTask6 = new ArrayList<>();
@@ -41,7 +40,7 @@ public class Main {
         listOfTask6_2.add(4);
         listOfTask6_2.add(6);
         listOfTask6_2.add(9);
-        System.out.println(sortNumbers(listOfTask6, listOfTask6_2) + "\n");
+        System.out.println(mergeLists(listOfTask6, listOfTask6_2) + "\n");
 
         System.out.println("Task 7:");
         List<Integer> listOfTask7 = new ArrayList<>();
@@ -60,7 +59,7 @@ public class Main {
 
         System.out.println("Task 9:");
         String wordOfTask9 = "Hello hello world!";
-        System.out.println(getFrequencyWord(wordOfTask9));
+        System.out.println(getWordFrequency(wordOfTask9));
 
         System.out.println("Task 10:");
         String sentenceOfTask10 = "The cat and the dog.";
@@ -72,11 +71,11 @@ public class Main {
 
         System.out.println("Task 12:");
         String wordOfTask12 = "\"apple\", \"ant\", \"banana\", \"blue\", \"blues\", \"ceiling\"";
-        System.out.println(getFrequentStartLetter(wordOfTask12));
+        System.out.println(getMostFrequentStartLetter(wordOfTask12));
 
         System.out.println("Task 13:");
         String lettersOfTask13 = "aabbbcdd";
-        System.out.println(getFrequentChar(lettersOfTask13));
+        System.out.println(getMostFrequentChar(lettersOfTask13));
 
         System.out.println("Task 14:");
         String wordOfTask14 = "holiday apple banana apple";
@@ -97,7 +96,7 @@ public class Main {
 
         System.out.println("Task 18:");
         List<String> wordsOfTask18 = List.of("apple", "banana", "apple", "orange", "banana", "apple");
-        System.out.println(getFrequentWord(wordsOfTask18));
+        System.out.println(getMostFrequentWord(wordsOfTask18));
 
         System.out.println("Task 19:");
         List<Integer> numbersOfTask19 = List.of(1, 2, 3, 2, 4, 1, 5);
@@ -208,8 +207,8 @@ public class Main {
 
     // Task 2:
     public static boolean isAnagram(String inputOne, String inputTwo) {
-        Map<Character, Integer> charCountInputOne = new LinkedHashMap<>();
-        Map<Character, Integer> charCountInputTwo = new LinkedHashMap<>();
+        Map<Character, Integer> charCountInputOne = new HashMap<>();
+        Map<Character, Integer> charCountInputTwo = new HashMap<>();
         for (char ch : inputOne.toCharArray()) {
             charCountInputOne.put(ch, charCountInputOne.getOrDefault(ch, 0) + 1);
         }
@@ -221,7 +220,7 @@ public class Main {
 
     // Task 3:
     public static Set<Integer> deleteDuplicate(List<Integer> list1, List<Integer> list2) {
-        Set<Integer> sortNumbers = new TreeSet<>();
+        Set<Integer> sortNumbers = new HashSet<>();
         sortNumbers.addAll(list1);
         sortNumbers.addAll(list2);
         return sortNumbers;
@@ -237,7 +236,7 @@ public class Main {
     }
 
     // Task 5:
-    public static boolean isUniqueNumber(String input) {
+    public static boolean isUniqueLetter(String input) {
         Map<Character, Integer> letters = new HashMap<>();
         for (Character ch : input.toCharArray()) {
             letters.put(ch, letters.getOrDefault(ch, 0) + 1);
@@ -249,7 +248,7 @@ public class Main {
     }
 
     // Task 6:
-    public static List<Integer> sortNumbers(List<Integer> list1, List<Integer> list2) {
+    public static List<Integer> mergeLists(List<Integer> list1, List<Integer> list2) {
         List<Integer> sortedList = new LinkedList<>();
         sortedList.addAll(list1);
         sortedList.addAll(list2);
@@ -271,25 +270,15 @@ public class Main {
     }
 
     // Task 8:
-    public static List<Integer> getCommonElements(List<Integer> list1, List<Integer> list2) {
-        List<Integer> commonElements = new ArrayList<>();
-        Map<Integer, Integer> countFrequency = new HashMap<>();
-        for (int number : list1) {
-            countFrequency.put(number, countFrequency.getOrDefault(number, 0) + 1);
-        }
-        for (int number : list2) {
-            countFrequency.put(number, countFrequency.getOrDefault(number, 0) + 1);
-        }
-        for (Map.Entry<Integer, Integer> entry : countFrequency.entrySet()) {
-            if (entry.getValue() > 1) {
-                commonElements.add(entry.getKey());
-            }
-        }
+    public static Set<Integer> getCommonElements(List<Integer> list1, List<Integer> list2) {
+        Set<Integer> commonElements = new HashSet<>(list1);
+        Set<Integer> commonElements2 = new HashSet<>(list2);
+        commonElements.retainAll(commonElements2);
         return commonElements;
     }
 
     // Task 9:
-    public static String getFrequencyWord(String input) {
+    public static String getWordFrequency(String input) {
         Map<String, Integer> wordsFrequency = new HashMap<>();
         String result = null;
         String[] splitWord = input.replaceAll("[!]", "").toLowerCase().split(" ");
@@ -333,7 +322,7 @@ public class Main {
     }
 
     // Task 12:
-    public static char getFrequentStartLetter(String input) {
+    public static char getMostFrequentStartLetter(String input) {
         Map<Character, Integer> lettersFrequent = new HashMap<>();
         int frequent = 0;
         char frequentLetter = '\u0000';
@@ -351,7 +340,7 @@ public class Main {
     }
 
     // Task 13:
-    public static char getFrequentChar(String input) {
+    public static char getMostFrequentChar(String input) {
         Map<Character, Integer> frequentChars = new HashMap<>();
         int count = 0;
         char frequentChar = '\u0000';
@@ -394,7 +383,29 @@ public class Main {
         for (char ch : input.toCharArray()) {
             letters.add(ch);
         }
-        return letters.size();
+        Map<Character, Integer> count = new HashMap<>();
+        int left = 0;
+        int formed = 0;
+        int minLen = Integer.MAX_VALUE;
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            count.put(c, count.getOrDefault(c, 0) + 1);
+            if (count.get(c) == 1) {
+                formed++;
+            }
+            while (formed == letters.size()) {
+                minLen = Math.min(minLen, i - left + 1);
+
+                char leftChar = input.charAt(left);
+                count.put(leftChar, count.get(leftChar) - 1);
+                if (count.get(leftChar) == 0) {
+                    formed--;
+                }
+                left++;
+            }
+        }
+
+        return minLen;
     }
 
     // Task 16:
@@ -431,7 +442,7 @@ public class Main {
     }
 
     // Task 18:
-    public static String getFrequentWord(List<String> list) {
+    public static String getMostFrequentWord(List<String> list) {
         Map<String, Integer> wordsFrequent = new HashMap<>();
         for (String word : list) {
             wordsFrequent.put(word, wordsFrequent.getOrDefault(word, 0) + 1);
@@ -472,7 +483,7 @@ public class Main {
         for (int number : list2) {
             list2Frequent.put(number, list2Frequent.getOrDefault(number, 0) + 1);
         }
-        return list1Frequent.equals(list2Frequent) ? true : false;
+        return list1Frequent.equals(list2Frequent);
     }
 
     // Task 21:
