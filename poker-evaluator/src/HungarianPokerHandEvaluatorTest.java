@@ -53,4 +53,20 @@ public class HungarianPokerHandEvaluatorTest {
         Hand hand = new Hand(cards);
         assertEquals(expecting, HungarianPokerHandEvaluator.getInstance().evaluate(hand));
     }
+
+    @Test
+    void shouldEvaluateNothing() throws InvalidHandException {
+        HandStrengths expecting = HandStrengths.NOTHING;
+        List<Card> cards = Arrays.asList(
+                new Card(CardColour.PIROS, CardValue.HETES),
+                new Card(CardColour.TOK, CardValue.NYOLCAS),
+                new Card(CardColour.PIROS, CardValue.KILENCES),
+                new Card(CardColour.MAKK, CardValue.ALSO),
+                new Card(CardColour.ZOLD, CardValue.FELSO),
+                new Card(CardColour.TOK, CardValue.FELSO),
+                new Card(CardColour.PIROS, CardValue.KIRALY)
+        );
+        Hand hand = new Hand(cards);
+        assertEquals(expecting, HungarianPokerHandEvaluator.getInstance().evaluate(hand));
+    }
 }

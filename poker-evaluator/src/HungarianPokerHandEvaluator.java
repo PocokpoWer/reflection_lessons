@@ -1,6 +1,6 @@
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static java.util.stream.Collectors.*;
 
 public class HungarianPokerHandEvaluator {
     private static final HungarianPokerHandEvaluator instance = new HungarianPokerHandEvaluator();
@@ -14,35 +14,15 @@ public class HungarianPokerHandEvaluator {
 
     public HandStrengths evaluate(Hand hand) {
         List<Card> cards = hand.getCards();
-
-        Map<CardValue, Integer> cardCount = new HashMap<>();
-        for (Card card : cards) {
-            CardValue value = card.getCardValue();
-            cardCount.put(value, cardCount.getOrDefault(value, 0) + 1);
+        if (cards.stream().collect(groupingBy(Card::getCardValue, counting())).values().stream().anyMatch(count -> count == 4)) {
+            return HandStrengths.POKER;
         }
-        for (int count : cardCount.values()) {
-            if (count >= 4) {
-                return HandStrengths.POKER;
-            }
+        if (cards.stream().collect(groupingBy(Card::getCardColour, counting())).values().stream().anyMatch(count -> count == 7)) {
+            return HandStrengths.FLUSH;
         }
-
-        Map<CardColour, Integer> colorCount = new HashMap<>();
-        for (Card card : cards) {
-            CardColour cardColour = card.getCardColour();
-            colorCount.put(cardColour, colorCount.getOrDefault(cardColour, 0) + 1);
+        if (cards.stream().collect(groupingBy(Card::getCardColour, counting())).values().stream().anyMatch(count -> count >= 4 && count <= 6)) {
+            return HandStrengths.ALMOST_FLUSH;
         }
-        for (int count : colorCount.values()) {
-            if (count == 7) {
-                return HandStrengths.FLUSH;
-            }
-        }
-
-        for (int count : colorCount.values()) {
-            if (count >= 4 && count <= 6) {
-                return HandStrengths.ALMOST_FLUSH;
-            }
-        }
-
         return HandStrengths.NOTHING;
     }
 }
