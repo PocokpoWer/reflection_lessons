@@ -3,7 +3,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InvalidHandException {
-        // poker cards
         List<Card> cards = Arrays.asList(
                 new Card(CardColour.PIROS, CardValue.ASZ),
                 new Card(CardColour.PIROS, CardValue.KIRALY),
