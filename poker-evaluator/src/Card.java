@@ -7,6 +7,16 @@ public class Card {
         this.cardValue = cardValue;
     }
 
+    public Card(String code) {
+        this.cardColour = CardColour.fromCode(code.charAt(0));
+        this.cardValue = CardValue.fromCode(code.substring(1));
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s", cardColour, cardValue);
+    }
+
     public CardValue getCardValue() {
         return cardValue;
     }
