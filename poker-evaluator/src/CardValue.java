@@ -13,10 +13,10 @@ public enum CardValue {
         this.code = code;
     }
 
-    public static CardValue fromCode(String code) {
+    public static CardValue fromCode(String code) throws InvalidHandException {
         for (CardValue v : values()) {
             if (v.code.equals(code)) return v;
         }
-        throw new IllegalArgumentException("Invalid card value");
+        throw new InvalidHandException("invalid card value");
     }
 }

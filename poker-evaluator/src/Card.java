@@ -7,7 +7,7 @@ public class Card {
         this.cardValue = cardValue;
     }
 
-    public Card(String code) {
+    public Card(String code) throws InvalidHandException {
         this.cardColour = CardColour.fromCode(code.charAt(0));
         this.cardValue = CardValue.fromCode(code.substring(1));
     }

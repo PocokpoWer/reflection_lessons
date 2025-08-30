@@ -26,17 +26,22 @@ public class Main {
         List<String> hands = new ArrayList<>(prop.stringPropertyNames());
 
         System.out.println("Result from the file:");
+
         for (String c : hands) {
-            String value = prop.getProperty(c);
-            String[] split = value.split(",");
-            List<Card> cards1 = new ArrayList<>();
-            for (String v : split) {
-                cards1.add(new Card(v.trim()));
+            try {
+                String value = prop.getProperty(c);
+                String[] split = value.split(",");
+                List<Card> cards1 = new ArrayList<>();
+                for (String v : split) {
+                    cards1.add(new Card(v.trim()));
+                }
+                Hand hand1 = new Hand(cards1);
+                HungarianPokerHandEvaluator hungarianPokerHandEvaluator = HungarianPokerHandEvaluator.getInstance();
+                HandStrengths handStrengths = hungarianPokerHandEvaluator.evaluate(hand1);
+                System.out.println(handStrengths);
+            } catch (InvalidHandException e) {
+                System.out.println("Wrong " + c + " " + e.getMessage());
             }
-            Hand hand1 = new Hand(cards1);
-            HungarianPokerHandEvaluator hungarianPokerHandEvaluator = HungarianPokerHandEvaluator.getInstance();
-            HandStrengths handStrengths = hungarianPokerHandEvaluator.evaluate(hand1);
-            System.out.println(handStrengths);
         }
     }
 }

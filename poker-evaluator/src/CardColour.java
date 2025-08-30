@@ -10,10 +10,10 @@ public enum CardColour {
         this.code = code;
     }
 
-    public static CardColour fromCode(char code) {
+    public static CardColour fromCode(char code) throws InvalidHandException {
         for (CardColour c : values()) {
             if (c.code == code) return c;
         }
-        throw new IllegalArgumentException("Invalid card color");
+        throw new InvalidHandException("invalid card color");
     }
 }
