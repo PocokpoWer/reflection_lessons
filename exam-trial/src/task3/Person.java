@@ -38,6 +38,21 @@ public class Person {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        Person person = (Person) obj;
+        if (age != person.getAge()) return false;
+        return name != null ? name.equals(person.name) : person.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = result + age;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return String.format("%s (%d)", name, age);
     }

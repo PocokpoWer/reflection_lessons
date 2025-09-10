@@ -2,7 +2,7 @@ import task1.StringManipulation;
 import task2.AppleForaging;
 import task2.Participant;
 import task3.Person;
-import task3.CsvParse;
+import task3.CsvParser;
 import task4.Activity;
 import task4.Cycling;
 import task4.Hiking;
@@ -30,7 +30,7 @@ public class Main {
         System.out.println(AppleForaging.mergeApplePieces(applePickers) + "\n");
 
         // Task 3:
-        Set<Person> people = CsvParse.read("src/people.csv");
+        Set<Person> people = CsvParser.read("src/people.csv");
         for (Person person : people) {
             System.out.println(person);
         }
@@ -48,6 +48,4 @@ public class Main {
             System.out.println();
         }
     }
-
-
 }
