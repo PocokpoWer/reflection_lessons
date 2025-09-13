@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CsvParse {
+public class CsvParser {
     public static Set<Person> read(String file) throws IOException {
         List<String> dataFromFile = Files.readAllLines(Path.of(file));
         Set<Person> result = new HashSet<>();
