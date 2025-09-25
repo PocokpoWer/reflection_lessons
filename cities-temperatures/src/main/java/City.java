@@ -1,7 +1,10 @@
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-@lombok.EqualsAndHashCode(of = {"name", "temperature"})
+@Builder
+@EqualsAndHashCode
 @Getter
 @AllArgsConstructor
 public class City {
