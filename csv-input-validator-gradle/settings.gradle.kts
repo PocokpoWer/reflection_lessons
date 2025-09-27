@@ -1,0 +1,1 @@
+rootProject.name = "csv-input-validator-gradle"
