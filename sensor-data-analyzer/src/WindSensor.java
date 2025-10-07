@@ -1,12 +1,12 @@
-public class TemperatureSensor extends Sensor {
+public class WindSensor extends Sensor {
 
-    public TemperatureSensor(MyDateTime myDateTime, int id) {
+    public WindSensor(MyDateTime myDateTime, int id) {
         super(myDateTime, id);
     }
 
     @Override
     public String sensorType() {
-        return "Temperature";
+        return "Wind";
     }
 
     @Override
