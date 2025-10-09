@@ -2,9 +2,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"ID", "SensorType", "Readings"})
 public abstract class Sensor {
-    private final MyDateTime myDateTime;
+    @JsonProperty("id")
     private final int id;
+    @JsonProperty("myDateTime")
+    private final MyDateTime myDateTime;
+    @JsonProperty("readings")
     private final List<Reading> readings = new ArrayList<>();
 
     public Sensor(MyDateTime myDateTime, int id) {
@@ -43,5 +50,6 @@ public abstract class Sensor {
         return getLatestReading().value();
     }
 
+    @JsonProperty("sensorType")
     public abstract String sensorType();
 }

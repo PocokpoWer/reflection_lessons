@@ -1,5 +1,5 @@
 SensorType,ID,TimeStamp, Value
-SensorType: Temperature,ID: 1,[Timestamp: 2025 10.3. 15:10 Value: 20.50, Timestamp: 2025 10.3. 15:10 Value: 22.00],
-SensorType: Temperature,ID: 2,[Timestamp: 2020 1.3. 10:0 Value: 18.00],
-SensorType: Humidity,ID: 3,[Timestamp: 2018 5.3. 9:20 Value: 55.00, Timestamp: 2018 5.3. 9:20 Value: 60.00],
-SensorType: Wind,ID: 4,[Timestamp: 2014 7.30. 19:50 Value: 25.00],
+SensorType: Temperature,ID: 1,[Reading[value=20.5, timestamp=2025 10.3. 15:10], Reading[value=22.0, timestamp=2025 10.3. 15:10]],
+SensorType: Temperature,ID: 2,[Reading[value=18.0, timestamp=2020 1.3. 10:0]],
+SensorType: Humidity,ID: 3,[Reading[value=55.0, timestamp=2018 5.3. 9:20], Reading[value=60.0, timestamp=2018 5.3. 9:20]],
+SensorType: Wind,ID: 4,[Reading[value=25.0, timestamp=2014 7.30. 19:50]],
