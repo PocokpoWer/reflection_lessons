@@ -9,7 +9,8 @@ import java.util.Map;
 public class SensorAnalyzerTest {
     @Test
     void shouldGetAverageReading() {
-        Sensor sensor = new TemperatureSensor(1);
+        MyDateTime myDateTime = new MyDateTime(2025, 10, 3, 15, 10);
+        Sensor sensor = new TemperatureSensor(myDateTime, 1);
         sensor.addReading(20);
         sensor.addReading(21);
         sensor.addReading(23);
@@ -22,13 +23,16 @@ public class SensorAnalyzerTest {
     @Test
     void shouldGetSensorsAboveThreshold() {
         double threshold = 22.0;
-        TemperatureSensor s1 = new TemperatureSensor(1);
+        MyDateTime myDateTime = new MyDateTime(2010, 5, 10, 06, 10);
+        TemperatureSensor s1 = new TemperatureSensor(myDateTime, 1);
         s1.addReading(20.0);
         s1.addReading(21.0);
-        TemperatureSensor s2 = new TemperatureSensor(2);
+        MyDateTime myDateTime2 = new MyDateTime(2012, 1, 4, 10, 1);
+        TemperatureSensor s2 = new TemperatureSensor(myDateTime2, 2);
         s2.addReading(23.0);
         s2.addReading(24.0);
-        TemperatureSensor empty = new TemperatureSensor(3);
+        MyDateTime myDateTime3 = new MyDateTime(2000, 12, 23, 12, 20);
+        TemperatureSensor empty = new TemperatureSensor(myDateTime3, 3);
 
         List<Sensor> testList = List.of(s1, s2, empty);
         List<Sensor> result = SensorAnalyzer.getSensorsAboveThreshold(testList, threshold);
@@ -38,30 +42,34 @@ public class SensorAnalyzerTest {
 
     @Test
     void shouldGetSensorWithHighestLatestReading() {
-        var s1 = new TemperatureSensor(1);
+        MyDateTime myDateTime = new MyDateTime(1988, 1, 30, 1, 30);
+        var s1 = new TemperatureSensor(myDateTime, 1);
         s1.addReading(21);
         s1.addReading(22);
 
-        var s2 = new TemperatureSensor(2);
+        MyDateTime myDateTime2 = new MyDateTime(2022, 4, 25, 10, 10);
+        var s2 = new TemperatureSensor(myDateTime2, 2);
         s2.addReading(20);
         s2.addReading(24);
 
         var actual = SensorAnalyzer.getSensorWithHighestLatestReading(List.of(s1, s2));
 
         assertSame(s2, actual);
-        assertEquals(24.0, actual.getLatestReading(), 1e-9);
+        assertEquals(24.0, actual.getLatestReading().value(), 1e-9);
     }
 
     @Test
-    void shouldGetLatestReadingsGroupedByType89() {
-        Sensor s1 = new TemperatureSensor(1);
+    void shouldGetLatestReadingsGroupedByType() {
+        MyDateTime myDateTime = new MyDateTime(2025, 10, 3, 15, 10);
+        Sensor s1 = new TemperatureSensor(myDateTime, 1);
         s1.addReading(20.0);
-        Sensor s2 = new TemperatureSensor(2);
+        MyDateTime myDateTime2 = new MyDateTime(2025, 9, 20, 15, 59);
+        Sensor s2 = new TemperatureSensor(myDateTime2, 2);
         s2.addReading(24.0);
         List<Sensor> testList = List.of(s1, s2);
-        Map<Integer, Double> expected = new HashMap<>();
-        expected.put(1, 20.0);
-        expected.put(2, 24.0);
+        Map<String, Double> expected = new HashMap<>();
+        expected.put("Temperature 1", 20.0);
+        expected.put("Temperature 2", 24.0);
         assertEquals(expected, SensorAnalyzer.getLatestReadingsGroupedByType(testList));
     }
 }

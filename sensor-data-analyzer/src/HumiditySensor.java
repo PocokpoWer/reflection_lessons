@@ -1,6 +1,7 @@
 public class HumiditySensor extends Sensor {
-    public HumiditySensor(int id) {
-        super(id);
+
+    public HumiditySensor(MyDateTime myDateTime, int id) {
+        super(myDateTime, id);
     }
 
     @Override
