@@ -68,8 +68,8 @@ public class SensorAnalyzerTest {
         s2.addReading(24.0);
         List<Sensor> testList = List.of(s1, s2);
         Map<String, Double> expected = new HashMap<>();
-        expected.put("Temperature 1", 20.0);
-        expected.put("Temperature 2", 24.0);
+        expected.put("SensorType: Temperature ID: 1", 20.0);
+        expected.put("SensorType: Temperature ID: 2", 24.0);
         assertEquals(expected, SensorAnalyzer.getLatestReadingsGroupedByType(testList));
     }
 }

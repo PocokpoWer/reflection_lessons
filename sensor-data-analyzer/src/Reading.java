@@ -1,7 +1,9 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({"Timestamp", "Value"})
 public record Reading(
-        @JsonProperty("value") double value,
-        @JsonProperty("timestamp") MyDateTime timestamp
+        @JsonProperty("Value") double value,
+        @JsonProperty("Timestamp") MyDateTime timestamp
 ) {
 }
