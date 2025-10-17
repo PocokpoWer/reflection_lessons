@@ -1,11 +1,14 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 @JsonPropertyOrder({"ID", "SensorType", "Readings"})
 public abstract class Sensor {
     @JsonProperty("SensorType")
@@ -13,6 +16,7 @@ public abstract class Sensor {
 
     @JsonProperty("ID")
     private final int id;
+    @JsonIgnore
     private final MyDateTime myDateTime;
     @JsonProperty("Readings")
     private final List<Reading> readings = new ArrayList<>();
@@ -20,19 +24,6 @@ public abstract class Sensor {
     public Sensor(MyDateTime myDateTime, int id) {
         this.myDateTime = myDateTime;
         this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    @JsonIgnore
-    public MyDateTime getMyDateTime() {
-        return myDateTime;
-    }
-
-    public List<Reading> getReadings() {
-        return Collections.unmodifiableList(readings);
     }
 
     public void addReading(double value) {

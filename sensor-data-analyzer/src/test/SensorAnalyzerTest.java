@@ -1,5 +1,8 @@
+package test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -17,7 +20,7 @@ public class SensorAnalyzerTest {
         sensor.addReading(24);
         sensor.addReading(24.5);
         double expected = 22.5;
-        assertEquals(expected, SensorAnalyzer.getAverageReading(sensor));
+        Assertions.assertEquals(expected, SensorAnalyzer.getAverageReading(sensor));
     }
 
     @Test
@@ -37,7 +40,7 @@ public class SensorAnalyzerTest {
         List<Sensor> testList = List.of(s1, s2, empty);
         List<Sensor> result = SensorAnalyzer.getSensorsAboveThreshold(testList, threshold);
         assertEquals(1, result.size());
-        assertEquals(2, result.get(0).getId());
+        Assertions.assertEquals(2, result.get(0).getId());
     }
 
     @Test
@@ -55,7 +58,7 @@ public class SensorAnalyzerTest {
         var actual = SensorAnalyzer.getSensorWithHighestLatestReading(List.of(s1, s2));
 
         assertSame(s2, actual);
-        assertEquals(24.0, actual.getLatestReading().value(), 1e-9);
+        Assertions.assertEquals(24.0, actual.getLatestReading().value(), 1e-9);
     }
 
     @Test
@@ -70,6 +73,6 @@ public class SensorAnalyzerTest {
         Map<String, Double> expected = new HashMap<>();
         expected.put("SensorType: Temperature ID: 1", 20.0);
         expected.put("SensorType: Temperature ID: 2", 24.0);
-        assertEquals(expected, SensorAnalyzer.getLatestReadingsGroupedByType(testList));
+        Assertions.assertEquals(expected, SensorAnalyzer.getLatestReadingsGroupedByType(testList));
     }
 }
