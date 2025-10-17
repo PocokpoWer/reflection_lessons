@@ -1,6 +1,7 @@
 public class TemperatureSensor extends Sensor {
-    public TemperatureSensor(int id) {
-        super(id);
+
+    public TemperatureSensor(MyDateTime myDateTime, int id) {
+        super(myDateTime, id);
     }
 
     @Override

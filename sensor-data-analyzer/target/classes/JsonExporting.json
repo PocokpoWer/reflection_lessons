@@ -1,0 +1,71 @@
+[ {
+  "ID" : 1,
+  "SensorType" : "Temperature",
+  "Readings" : [ {
+    "Timestamp" : {
+      "Year" : 2025,
+      "Month" : 10,
+      "Day" : 3,
+      "Hour" : 15,
+      "Minute" : 10
+    },
+    "Value" : 20.5
+  }, {
+    "Timestamp" : {
+      "Year" : 2025,
+      "Month" : 10,
+      "Day" : 3,
+      "Hour" : 15,
+      "Minute" : 10
+    },
+    "Value" : 22.0
+  } ]
+}, {
+  "ID" : 2,
+  "SensorType" : "Temperature",
+  "Readings" : [ {
+    "Timestamp" : {
+      "Year" : 2020,
+      "Month" : 1,
+      "Day" : 3,
+      "Hour" : 10,
+      "Minute" : 0
+    },
+    "Value" : 18.0
+  } ]
+}, {
+  "ID" : 3,
+  "SensorType" : "Humidity",
+  "Readings" : [ {
+    "Timestamp" : {
+      "Year" : 2018,
+      "Month" : 5,
+      "Day" : 3,
+      "Hour" : 9,
+      "Minute" : 20
+    },
+    "Value" : 55.0
+  }, {
+    "Timestamp" : {
+      "Year" : 2018,
+      "Month" : 5,
+      "Day" : 3,
+      "Hour" : 9,
+      "Minute" : 20
+    },
+    "Value" : 60.0
+  } ]
+}, {
+  "ID" : 4,
+  "SensorType" : "Wind",
+  "Readings" : [ {
+    "Timestamp" : {
+      "Year" : 2014,
+      "Month" : 7,
+      "Day" : 30,
+      "Hour" : 19,
+      "Minute" : 50
+    },
+    "Value" : 25.0
+  } ]
+} ]
