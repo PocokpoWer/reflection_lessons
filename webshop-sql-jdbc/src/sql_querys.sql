@@ -1,3 +1,12 @@
+-- Tábla létrehozása:
+CREATE TABLE shop_item (
+    id INT NOT NULL AUTO_INCREMENT,
+    item_name VARCHAR(20) NOT NULL DEFAULT 'UNKNOWN',
+    item_price INT NOT NULL CHECK (item_price > 0),
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    date_added DATE NOT NULL DEFAULT (CURDATE()),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- Töltsük fel a táblát különböző rekordokkal az insert into parancs segítségével!
 INSERT INTO shop_item (item_name, item_price, quantity)
 VALUES
