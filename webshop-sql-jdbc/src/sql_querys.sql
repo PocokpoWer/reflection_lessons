@@ -32,9 +32,6 @@ SELECT AVG(shop_item.item_price) AS average_price_of_product FROM webshop.shop_i
 -- Mennyi egy átlagos termék ára a termékek számának súlyozásának a figyelembe vételével?
 SELECT SUM(item_price * quantity) / SUM(quantity) AS average_price_for_quantity FROM webshop.shop_item;
 -- Mi a legdrágább és a legolcsóbb termék neve?
-SELECT item_name, item_price FROM shop_item WHERE item_price = (SELECT MAX(item_price) FROM shop_item);
-SELECT item_name, item_price FROM shop_item WHERE item_price = (SELECT MIN(item_price)FROM shop_item);
--- Mi a legrégebben hozzáadott termék?
-SELECT item_name, date_added FROM shop_item WHERE date_added = (SELECT MIN(date_added) FROM shop_item);
--- Mi a legújabban hozzáadott termék?
-SELECT item_name, date_added FROM shop_item WHERE date_added = (SELECT MAX(date_added) FROM shop_item);
+WITH max_price AS (SELECT MAX(item_price) AS max_p FROM shop_item),min_price AS (SELECT MIN(item_price) AS min_p FROM shop_item) SELECT 'Most expensive' AS type, i.item_name, i.item_price FROM shop_item i JOIN max_price m ON i.item_price = m.max_p UNION ALL SELECT 'Cheapest' AS type, i.item_name, i.item_price FROM shop_item i JOIN min_price n ON i.item_price = n.min_p;
+-- Mi a legrégebben és legújabban hozzáadott termék?
+WITH oldest AS (SELECT MIN(date_added) AS min_date FROM shop_item),newest AS (SELECT MAX(date_added) AS max_date FROM shop_item) SELECT 'Oldest' AS type, i.item_name, i.date_added FROM shop_item i JOIN oldest o ON i.date_added = o.min_date UNION ALL SELECT 'Latest' AS type, i.item_name, i.date_added FROM shop_item i JOIN newest n ON i.date_added = n.max_date;
