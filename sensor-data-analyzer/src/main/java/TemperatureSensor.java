@@ -1,3 +1,4 @@
+
 public class TemperatureSensor extends Sensor {
 
     public TemperatureSensor(MyDateTime myDateTime, int id) {
