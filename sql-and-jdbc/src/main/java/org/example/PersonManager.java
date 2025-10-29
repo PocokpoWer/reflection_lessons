@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonManager implements PersonRepository {
-    private final Connection connection;
+    Connection connection;
 
     public PersonManager(Connection connection) {
         this.connection = connection;
