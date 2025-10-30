@@ -1,9 +1,6 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,6 +8,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Person {
     private long id;
     private String firstName;
@@ -21,9 +19,4 @@ public class Person {
     private Gender gender;
     private HighestEducation highestEducation;
     private int numberOfChildren;
-
-    @Override
-    public String toString() {
-        return String.format("ID: %d, First name: %s, Last name: %s, Mother name: %s, Father name: %s, Birthdate: %s, Gender: %s, Highest Education: %s, Children: %d", getId(), getFirstName(), getLastName(), getMotherName(), getFatherName(), getBirthDate(), getGender(), getHighestEducation(), getNumberOfChildren());
-    }
 }

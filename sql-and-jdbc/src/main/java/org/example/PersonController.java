@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class PersonController {
     private final AddPerson addPerson;
-    private final GetPerson getPerson;
+    private final FindPerson findPerson;
     private final UpdatePerson updatePerson;
     private final DeletePerson deletePerson;
     private final ReadPerson readPerson;
 
     public PersonController(PersonManager personManager) {
         this.addPerson = new AddPerson(personManager);
-        this.getPerson = new GetPerson(personManager);
+        this.findPerson = new FindPerson(personManager);
         this.updatePerson = new UpdatePerson(personManager);
         this.deletePerson = new DeletePerson(personManager);
         this.readPerson = new ReadPerson(personManager);
@@ -23,7 +23,7 @@ public class PersonController {
         while (true) {
             System.out.printf("Choice a function\n" +
                     "1 - Add person\n" +
-                    "2 - Get Person By ID" +
+                    "2 - Get Person By ID\n" +
                     "3 - Update person\n" +
                     "4 - Delete person\n" +
                     "5 - Read person\n" +
@@ -34,7 +34,7 @@ public class PersonController {
                     addPerson.add();
                     break;
                 case 2:
-                    getPerson.getPersonById();
+                    System.out.println(findPerson.findPersonById());
                     break;
                 case 3:
                     updatePerson.update();
