@@ -4,8 +4,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class DeletePerson {
-    PersonManager personManager;
-    Person person;
+    private final PersonManager personManager;
 
     public DeletePerson(PersonManager personManager) {
         this.personManager = personManager;
@@ -15,7 +14,6 @@ public class DeletePerson {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Id:");
         int idNumber = scanner.nextInt();
-        person = new Person(idNumber);
-        personManager.deletePerson(person);
+        personManager.deletePerson(idNumber);
     }
 }

@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UpdatePerson {
-    PersonManager personManager;
-    Person person;
+    private final PersonManager personManager;
+    private Person person;
 
     public UpdatePerson(PersonManager personManager) {
         this.personManager = personManager;
@@ -31,8 +31,15 @@ public class UpdatePerson {
         System.out.println("Children:");
         int children = scanner.nextInt();
         scanner.nextLine();
-        person = new Person(firstName, lastName, motherName, fatherName, Date.valueOf(birthDate), gender, highestEducation, children);
+        person = new Person();
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setMotherName(motherName);
+        person.setFatherName(fatherName);
+        person.setBirthDate(Date.valueOf(birthDate));
+        person.setGender(gender);
+        person.setHighestEducation(highestEducation);
+        person.setNumberOfChildren(children);
         personManager.updatePerson(person);
-        scanner.close();
     }
 }
