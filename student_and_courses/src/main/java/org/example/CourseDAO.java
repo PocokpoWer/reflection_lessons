@@ -1,0 +1,41 @@
+package org.example;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class CourseDAO {
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa_practice-pu");
+
+    void addCourse(Course course) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(course);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    Course findCourseById(Long id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Course course = entityManager.find(Course.class, id);
+        entityManager.close();
+        return course;
+    }
+
+    void updateCourse(Course course) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.merge(course);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    void deleteCourse(Long id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Course course = entityManager.find(Course.class, id);
+        entityManager.remove(course);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+}
