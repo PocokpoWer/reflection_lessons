@@ -25,8 +25,10 @@ public class Main {
         List<Course> list2 = entityManager.createQuery(
                 "SELECT DISTINCT c FROM Course c JOIN FETCH c.students", Course.class
         ).getResultList();
-        for (Course c : list2)
-            for (Student s : c.getStudents())
+        for (Course c : list2) {
+            for (Student s : c.getStudents()) {
                 System.out.println(c.getName() + " - " + s.getFirstName());
+            }
+        }
     }
 }
