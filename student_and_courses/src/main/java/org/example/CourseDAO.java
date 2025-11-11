@@ -3,6 +3,11 @@ package org.example;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseDAO {
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa_practice-pu");
