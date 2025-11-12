@@ -13,7 +13,6 @@ import java.util.List;
 
 public class Main {
     static void main() {
-/*
         // N+1 query problem
         List<Course> list = entityManager.createQuery("SELECT c FROM Course c", Course.class).getResultList();
         for (Course c : list) {
@@ -24,7 +23,6 @@ public class Main {
         for (Student s : students) {
             System.out.println(s.getFirstName() + " " + s.getLastName() + " " + s.getEmail());
         }
-*/
 
         // Only one SQl query
         List<Course> list2 = findAllCourses();
