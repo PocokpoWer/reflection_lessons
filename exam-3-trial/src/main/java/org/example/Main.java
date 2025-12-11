@@ -1,6 +1,5 @@
 package org.example;
 
-import javax.swing.*;
 import java.util.*;
 
 public class Main {
@@ -11,7 +10,7 @@ public class Main {
 
         System.out.println("Task 2:");
         String test = "aaabb";
-        System.out.println(removeElements(test));
+        System.out.println(removeElement(test));
 
     }
 
@@ -28,7 +27,7 @@ public class Main {
     }
 
     // Task 2:
-    static Character removeElements(String input) throws NoMajorityElementException {
+    static Character removeElement(String input) throws NoMajorityElementException {
         int limit = input.length() / 2;
         Map<Character, Integer> sum = new HashMap<>();
         for (char c : input.toCharArray()) {
