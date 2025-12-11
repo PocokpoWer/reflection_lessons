@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
-public class JsonWriter {
-    ObjectMapper objectMapper = new ObjectMapper();
-
-    void writeJson(List<User> inputLine, Path path) throws IOException {
+public class JsonWriter implements UserWriter {
+    @Override
+    public void write(List<User> list, Path path) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        objectMapper.writeValue(new File(path.toString()), inputLine);
+        objectMapper.writeValue(new File(path.toString()), list);
     }
 }

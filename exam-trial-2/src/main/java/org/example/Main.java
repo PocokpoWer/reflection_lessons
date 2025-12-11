@@ -1,6 +1,7 @@
 package org.example;
 
-import com.opencsv.exceptions.CsvException;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -8,12 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CsvWriter csvWriter = new CsvWriter();
-        JsonWriter jsonWriter = new JsonWriter();
-        List<User> peoples = new ArrayList<>();
+    public static final Scanner scanner = new Scanner(System.in);
+    public static final CsvWriter csvWriter = new CsvWriter();
+    public static final JsonWriter jsonWriter = new JsonWriter();
+    public static List<User> peoples = new ArrayList<>();
+
+    public static void main(String[] args) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
+
 
         System.out.println("How many employees do you want to add? ");
         int employeesNumber = scanner.nextInt();
@@ -41,24 +45,19 @@ public class Main {
 
         System.out.println("What format would you like to write in? (csv/json)");
         String format = scanner.nextLine().trim().toLowerCase();
-
-        if (format.equals("csv")) {
-            try {
-                csvWriter.writeCsv(peoples, Path.of("employees.csv"));
-                System.out.println("CSV done!");
-            } catch (CsvException | IOException e) {
-                e.getMessage();
-            }
-        } else if (format.equals("json")) {
-            try {
-                jsonWriter.writeJson(peoples, Path.of("employees.json"));
-                System.out.println("Json done!");
-            } catch (IOException e) {
-                e.getMessage();
-            }
-        } else {
-            System.out.println("Unknown format");
-        }
+        chooseWriter(format);
         scanner.close();
+    }
+
+    private static void chooseWriter(String format) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
+        if (format.equals("csv")) {
+            csvWriter.write(peoples, Path.of("employees.csv"));
+            System.out.println("CSV done!");
+        } else if (format.equals("json")) {
+            jsonWriter.write(peoples, Path.of("employees.json"));
+            System.out.println("Json done!");
+        } else {
+            throw new RuntimeException("Unknown format");
+        }
     }
 }

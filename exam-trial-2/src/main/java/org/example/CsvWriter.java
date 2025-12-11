@@ -11,11 +11,11 @@ import java.io.Writer;
 import java.nio.file.Path;
 import java.util.List;
 
-public class CsvWriter {
-    public void writeCsv(List<User> inputLines, Path path) throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
-        try (Writer csvWriter = new FileWriter(path.toString())) {
-            StatefulBeanToCsv<User> beanToCsv = new StatefulBeanToCsvBuilder<User>(csvWriter).build();
-            beanToCsv.write(inputLines);
-        }
+public class CsvWriter implements UserWriter {
+    @Override
+    public void write(List<User> list, Path path) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException {
+        Writer csvWriter = new FileWriter(path.toString());
+        StatefulBeanToCsv<User> beanToCsv = new StatefulBeanToCsvBuilder<User>(csvWriter).build();
+        beanToCsv.write(list);
     }
 }
