@@ -23,7 +23,7 @@ public class University {
         return instance;
     }
 
-    void offerCourse(Course course) {
+    public void offerCourse(Course course) {
         if (!courses.add(course)) {
             throw new CourseAlreadyExistHandleException("Course already offered");
         } else {
@@ -31,7 +31,7 @@ public class University {
         }
     }
 
-    void hireProfessor(Professor professor) {
+    public void hireProfessor(Professor professor) {
         if (!professors.add(professor)) {
             throw new ProfessorAlreadyExistHandleException("Professor already hired");
         } else {
@@ -39,7 +39,7 @@ public class University {
         }
     }
 
-    void admitEnrollable(Enrollable enrollable) {
+    public void admitEnrollable(Enrollable enrollable) {
         if (!participants.add(enrollable)) {
             throw new EnrollableAlreadyExistHandleException("Participant already admitted");
         } else {
@@ -47,11 +47,11 @@ public class University {
         }
     }
 
-    List<Enrollable> getParticipantsOfCourse(Course course) {
+    public List<Enrollable> getParticipantsOfCourse(Course course) {
         return new ArrayList<>(course.getEnrolledParticipants());
     }
 
-    List<Course> getCoursesProfessor(Professor professor) {
+    public List<Course> getCoursesProfessor(Professor professor) {
         List<Course> list = new ArrayList<>();
         for (Course c : courses) {
             if (c.getProfessor().equals(professor)) {
