@@ -1,0 +1,11 @@
+[ {
+  "name" : "Tibor",
+  "age" : 18,
+  "department" : "Driver",
+  "salary" : 700000.0
+}, {
+  "name" : "Anna",
+  "age" : 22,
+  "department" : "Cooker",
+  "salary" : 300000.0
+} ]
