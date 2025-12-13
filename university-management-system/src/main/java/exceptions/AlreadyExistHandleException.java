@@ -1,7 +1,7 @@
 package exceptions;
 
-public class StudentAlreadyExistHandleException extends RuntimeException {
-    public StudentAlreadyExistHandleException(String message) {
+public class AlreadyExistHandleException extends RuntimeException {
+    public AlreadyExistHandleException(String message) {
         super(message);
     }
 }

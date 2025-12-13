@@ -1,8 +1,6 @@
 package org.univ.system;
 
-import exceptions.CourseAlreadyExistHandleException;
-import exceptions.EnrollableAlreadyExistHandleException;
-import exceptions.ProfessorAlreadyExistHandleException;
+import exceptions.AlreadyExistHandleException;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,39 +23,28 @@ public class University {
 
     public void offerCourse(Course course) {
         if (!courses.add(course)) {
-            throw new CourseAlreadyExistHandleException("Course already offered");
-        } else {
-            courses.add(course);
+            throw new AlreadyExistHandleException("Course already offered");
         }
     }
 
     public void hireProfessor(Professor professor) {
         if (!professors.add(professor)) {
-            throw new ProfessorAlreadyExistHandleException("Professor already hired");
-        } else {
-            professors.add(professor);
+            throw new AlreadyExistHandleException("Professor already hired");
         }
     }
 
     public void admitEnrollable(Enrollable enrollable) {
         if (!participants.add(enrollable)) {
-            throw new EnrollableAlreadyExistHandleException("Participant already admitted");
-        } else {
-            participants.add(enrollable);
+            throw new AlreadyExistHandleException("Participant already admitted");
         }
     }
 
+    // The task requires this method.
     public List<Enrollable> getParticipantsOfCourse(Course course) {
         return new ArrayList<>(course.getEnrolledParticipants());
     }
 
     public List<Course> getCoursesProfessor(Professor professor) {
-        List<Course> list = new ArrayList<>();
-        for (Course c : courses) {
-            if (c.getProfessor().equals(professor)) {
-                list.add(c);
-            }
-        }
-        return list;
+        return courses.stream().filter(course -> course.getProfessor().equals(professor)).toList();
     }
 }
