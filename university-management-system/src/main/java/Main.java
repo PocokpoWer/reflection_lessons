@@ -32,7 +32,7 @@ public class Main {
         course2.enrollParticipant(student2);
         course3.enrollParticipant(researcher);
 
-        for (Enrollable enrollable : university.getParticipantsOfCourse(course1)) {
+        for (Enrollable enrollable : university.getParticipantsToCourse(course1)) {
             System.out.println(enrollable);
         }
         System.out.println();

@@ -40,7 +40,7 @@ public class University {
     }
 
     // The task requires this method.
-    public List<Enrollable> getParticipantsOfCourse(Course course) {
+    public List<Enrollable> getParticipantsToCourse(Course course) {
         return new ArrayList<>(course.getEnrolledParticipants());
     }
 
