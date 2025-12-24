@@ -1,6 +1,6 @@
 package org.univ.system;
 
-import exceptions.AlreadyExistHandleException;
+import exceptions.AlreadyExistException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -25,7 +25,7 @@ class UniversityTest {
     void shouldGetOfferCourseThrow() {
         Course course = new Course("MAT-123", "Linear algebra", new Professor("Dr. X", Faculty.COMPUTER_SCIENCE, 5));
         university.offerCourse(course);
-        assertThrows(AlreadyExistHandleException.class, () -> university.offerCourse(course));
+        assertThrows(AlreadyExistException.class, () -> university.offerCourse(course));
     }
 
     @Test
@@ -40,7 +40,7 @@ class UniversityTest {
     void shouldHireProfessorThrow() {
         Professor professor = new Professor("Dr. Tihamér", Faculty.CHEMICAL_ENGINEERING, 2);
         university.hireProfessor(professor);
-        assertThrows(AlreadyExistHandleException.class, () -> university.hireProfessor(professor));
+        assertThrows(AlreadyExistException.class, () -> university.hireProfessor(professor));
     }
 
     @Test
@@ -56,7 +56,7 @@ class UniversityTest {
     void shouldAdmitEnrollableThrow() {
         Student student = new Student("Zsolt", "654987", Faculty.COMPUTER_SCIENCE);
         university.admitEnrollable(student);
-        assertThrows(AlreadyExistHandleException.class, () -> university.admitEnrollable(student));
+        assertThrows(AlreadyExistException.class, () -> university.admitEnrollable(student));
     }
 
     @Test

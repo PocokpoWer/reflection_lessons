@@ -1,6 +1,6 @@
 package org.univ.system;
 
-import exceptions.AlreadyExistHandleException;
+import exceptions.AlreadyExistException;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -29,7 +29,7 @@ public class Course {
             throw new IllegalArgumentException("Participant cannot be null");
         }
         if (enrolledParticipants.contains(enrollable)) {
-            throw new AlreadyExistHandleException("Participant already enrolled");
+            throw new AlreadyExistException("Participant already enrolled");
         }
         enrolledParticipants.add(enrollable);
     }

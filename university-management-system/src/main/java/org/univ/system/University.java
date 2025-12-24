@@ -1,6 +1,6 @@
 package org.univ.system;
 
-import exceptions.AlreadyExistHandleException;
+import exceptions.AlreadyExistException;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,19 +23,19 @@ public class University {
 
     public void offerCourse(Course course) {
         if (!courses.add(course)) {
-            throw new AlreadyExistHandleException("Course already offered");
+            throw new AlreadyExistException("Course already offered");
         }
     }
 
     public void hireProfessor(Professor professor) {
         if (!professors.add(professor)) {
-            throw new AlreadyExistHandleException("Professor already hired");
+            throw new AlreadyExistException("Professor already hired");
         }
     }
 
     public void admitEnrollable(Enrollable enrollable) {
         if (!participants.add(enrollable)) {
-            throw new AlreadyExistHandleException("Participant already admitted");
+            throw new AlreadyExistException("Participant already admitted");
         }
     }
 
