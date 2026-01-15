@@ -1,6 +1,5 @@
 package org.example;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @NoArgsConstructor
@@ -8,12 +7,8 @@ import lombok.*;
 @Setter
 @ToString
 public class BlogPostResponse {
-    @JsonProperty("userId")
-    int userId;
-    @JsonProperty("id")
-    int id;
-    @JsonProperty("title")
-    String title;
-    @JsonProperty("body")
-    String body;
+    private int userId;
+    private int id;
+    private String title;
+    private String body;
 }
