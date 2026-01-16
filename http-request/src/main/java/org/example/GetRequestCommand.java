@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 @RequiredArgsConstructor
 public class GetRequestCommand<T> implements Command<T> {
     private static ObjectMapper mapper = new ObjectMapper();
