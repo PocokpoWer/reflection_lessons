@@ -9,12 +9,12 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     static void main() throws IOException, InterruptedException {
-        try (client) {
+        try (client; scanner) {
             GetRequestCommand getRequest = new GetRequestCommand(URLConstants.getURL);
             System.out.println(getRequest.execute());
 
             PostRequestCommand postRequest = new PostRequestCommand(URLConstants.postURL, getUserInput(scanner));
-            postRequest.execute();
+            System.out.println(postRequest.execute());
         }
     }
 
@@ -29,6 +29,6 @@ public class Main {
         String text1 = scanner.nextLine();
         System.out.println("Enter you another text on the meme: ");
         String text2 = scanner.nextLine();
-        return "template_id=" + id + "&username=" + username + "&password=" + password + "&text0=" + text1 + "&text1=" + text2;
+        return String.format("template_id=%d&username=%s&password=%s&text0=%s&text1=%s", id, username, password, text1, text2);
     }
 }
