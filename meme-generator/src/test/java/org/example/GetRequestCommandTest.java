@@ -14,6 +14,6 @@ class GetRequestCommandTest {
 
         String result = getRequestCommand.execute();
         assertNotNull(result);
-        assertEquals(true, result.contains("\"success\" : true"));
+        assertTrue(result.contains("\"success\" : true"));
     }
 }

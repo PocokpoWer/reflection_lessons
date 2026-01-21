@@ -16,7 +16,7 @@ class PostRequestCommandTest {
         PostRequestCommand postRequestCommand = new PostRequestCommand(URLConstants.postURL, formData);
         String result = postRequestCommand.execute();
         assertNotNull(result);
-        assertEquals(true, result.contains("\"success\" : true"));
+        assertTrue(result.contains("\"success\" : true"));
         assertTrue(result.contains("\"url\" :"));
     }
 }
